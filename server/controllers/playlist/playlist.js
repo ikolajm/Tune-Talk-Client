@@ -56,10 +56,29 @@ router.get('/:id', (req, res) => {
                         where: { id: req.params.id }
                     })
                     .then(results => {
-                        res.json({
-                            playlist: results,
-                            message: 'Playlist successfully fetched!'
-                        })
+                        if (results === null) {
+                            db.Playlist.findOne({
+                                where: { id: req.params.id },
+                                include: [ 
+                                    {
+                                        model: db.Comment,
+                                        where: { playlistId: req.params.id }
+                                    }
+                                ]
+                            })
+                            .then(results => {
+                                res.json({
+                                    playlist: results,
+                                    message: 'Playlist successfully fetched!',
+                                    tt_code: 'GREEN'
+                                })
+                            })
+                        } else {
+                            res.json({
+                                playlist: results,
+                                message: 'Playlist successfully fetched!'
+                            })
+                        }
                     })
                 } else {
                     res.json({
