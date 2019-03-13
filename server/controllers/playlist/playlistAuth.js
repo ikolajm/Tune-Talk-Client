@@ -30,7 +30,7 @@ router.put('/edit/:id', (req, res) => {
         name: req.body.name,
         thumbnail: req.body.thumbnail
     },
-        { where: { user_assc: req.user.id, id: req.params.id } }
+        { where: { userId: req.user.id, id: req.params.id } }
     )
     .then(updatedPlaylist => {
         res.json({
@@ -50,7 +50,7 @@ router.put('/edit/:id', (req, res) => {
 // Playlist delete (normal)
 router.delete('/delete/:id', (req, res) => {
     db.Playlist.destroy({
-        where: { user_assc: req.user.id, id: req.params.id }
+        where: { userId: req.user.id, id: req.params.id }
     })
     .then(deletedPlaylist => {
         res.json({

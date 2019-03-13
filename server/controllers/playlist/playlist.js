@@ -24,39 +24,37 @@ router.get('/:id', (req, res) => {
     db.Playlist.findOne({
         where: { id: req.params.id },
         include: [
+            // Get songs
             {
-                // Songs
                 model: db.Song,
-                where: { playListId: req.params.id },
-                include: [
-                    {
-                        // Comments
-                        model: db.Comment,
-                        where: { playListId: req.params.id }
-                    }
-                ]
+                where: { playlistId: req.params.id }
+            },
+            // Get comments
+            {
+                model: db.Comment,
+                where: { playlistId: req.params.id }
+
             }
         ]
     })
     .then(results => {
-        // Songs, no comments
+        // If results returns null, try including only songs
         if (results === null) {
             db.Playlist.findOne({
                 where: { id: req.params.id },
                 include: [
                     {
-                        // Songs
                         model: db.Song,
-                        where: { playListId: req.params.id }
+                        where: { playlistId: req.params.id }
                     }
                 ]
             })
             .then(results => {
-                // Comments, no songs
+                // If results returns null, check for comments but no song
                 if (results === null) {
-                    db.Playlist.findOne({
+                    db.findOne({
                         where: { id: req.params.id },
-                        include: [ 
+                        include: [
                             {
                                 model: db.Comment,
                                 where: { playlistId: req.params.id }
@@ -64,29 +62,30 @@ router.get('/:id', (req, res) => {
                         ]
                     })
                     .then(results => {
-                        // No comments or songs
+                        // If no comments or songs, return just the playlist
                         if (results === null) {
-                            db.Playlist.findOne({
-                                where: { id: req.params.id },
+                            db.findOne({
+                                where: { id: req.params.id }
                             })
                             .then(results => {
                                 res.json({
-                                    playlist: results,
-                                    message: 'Playlist successfully fetched!',
+                                    results: results,
+                                    message: 'Playlist fetched successfully!',
                                     tt_code: 'GREEN'
                                 })
                             })
                         } else {
                             res.json({
-                                playlist: results,
-                                message: 'Playlist successfully fetched!'
+                                results: results,
+                                message: 'Playlist fetched successfully!',
+                                tt_code: 'GREEN'
                             })
                         }
                     })
                 } else {
                     res.json({
-                        playlist: results,
-                        message: 'Playlist successfully found!',
+                        results: results,
+                        message: 'Playlist fetched successfully!',
                         tt_code: 'GREEN'
                     })
                 }
@@ -94,11 +93,10 @@ router.get('/:id', (req, res) => {
         } else {
             res.json({
                 results: results,
-                message: 'Playlist successfully found!',
+                message: 'Playlist fetched successfully!',
                 tt_code: 'GREEN'
             })
         }
-        
     })
     .catch(err => {
         res.json({
