@@ -30,7 +30,7 @@ router.put('/comment/edit/:id', (req, res) => {
     db.Comment.update({
         content: req.body.content
     },
-        { where: { user_assc: req.user.id, id: req.params.id } }
+        { where: { userId: req.user.id, id: req.params.id } }
     )
     .then(updatedComment => {
         res.json({
@@ -50,7 +50,7 @@ router.put('/comment/edit/:id', (req, res) => {
 // Delete comment
 router.delete('/comment/delete/:id', (req, res) => {
     db.Comment.destroy({
-        where: { user_assc: req.user.id, id: req.params.id }
+        where: { userId: req.user.id, id: req.params.id }
     })
     .then(deletedComment => {
         res.json({
