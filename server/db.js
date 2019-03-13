@@ -31,6 +31,9 @@ db.Comment.belongsTo(db.Playlist, { onDelete: 'cascade' });
 db.Playlist.hasMany(db.Comment, { onDelete: 'cascade' });
 db.Comment.belongsTo(db.User, { onDelete: 'cascade' });
 db.User.hasMany(db.Comment, { onDelete: 'cascade' });
+db.User.hasMany(db.Song, { onDelete: 'cascade' });
+db.Song.belongsTo(db.User, { onDelete: 'cascade' });
+
 
 module.exports = {
     db: db,
