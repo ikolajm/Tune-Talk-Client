@@ -39,6 +39,7 @@ router.get('/:id', (req, res) => {
         ]
     })
     .then(results => {
+        // Songs, no comments
         if (results === null) {
             db.Playlist.findOne({
                 where: { id: req.params.id },
@@ -51,20 +52,22 @@ router.get('/:id', (req, res) => {
                 ]
             })
             .then(results => {
+                // Comments, no songs
                 if (results === null) {
                     db.Playlist.findOne({
-                        where: { id: req.params.id }
+                        where: { id: req.params.id },
+                        include: [ 
+                            {
+                                model: db.Comment,
+                                where: { playlistId: req.params.id }
+                            }
+                        ]
                     })
                     .then(results => {
+                        // No comments or songs
                         if (results === null) {
                             db.Playlist.findOne({
                                 where: { id: req.params.id },
-                                include: [ 
-                                    {
-                                        model: db.Comment,
-                                        where: { playlistId: req.params.id }
-                                    }
-                                ]
                             })
                             .then(results => {
                                 res.json({
