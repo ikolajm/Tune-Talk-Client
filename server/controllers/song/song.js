@@ -11,10 +11,10 @@ router.post('/playlist/:plId/song/add', (req, res) => {
         playlistId: req.params.plId,
         userId: req.user.id
     })
-    .then(createdComment => {
+    .then(createdSong => {
         res.json({
-            comment: createdComment,
-            message: 'Comment successfully created!',
+            song: createdSong,
+            message: 'Song successfully created!',
             tt_code: 'GREEN'
         })
     })
@@ -29,12 +29,12 @@ router.post('/playlist/:plId/song/add', (req, res) => {
 // Edit comment
 router.put('/song/edit/:id', (req, res) => {
     db.Song.update({
-        name: req.params.name,
-        album: req.params.album,
-        artist: req.params.artist,
-        thumbnail: req.params.thumbnail
+        name: req.body.name,
+        album: req.body.album,
+        artist: req.body.artist,
+        thumbnail: req.body.thumbnail
     },
-        { where: { user_assc: req.user.id, id: req.params.id } }
+        { where: { userId: req.user.id, id: req.params.id } }
     )
     .then(updatedSong => {
         res.json({
@@ -54,7 +54,7 @@ router.put('/song/edit/:id', (req, res) => {
 // Delete comment
 router.delete('/song/delete/:id', (req, res) => {
     db.Song.destroy({
-        where: { user_assc: req.user.id, id: req.params.id }
+        where: { userId: req.user.id, id: req.params.id }
     })
     .then(deletedSong => {
         res.json({
