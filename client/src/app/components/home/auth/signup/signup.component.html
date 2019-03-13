@@ -1,3 +1,30 @@
-<p>
-  signup works!
-</p>
+<!-- <div>
+  <label for="username">Username:</label>
+  <input #username type="text" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Username is required</div>
+      </div>
+</div>
+<div>
+  <label for="password">Password:</label>
+  <input # password type="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+</div>
+<div>
+  <label for="avatar" >Avatar</label>
+  <input #avatar type="text" placeholder="Enter Avatar URL...">
+</div>
+<div>
+  <label for="email">E-mail:</label>
+  <input #email type="email">
+</div>
+<button (click)="onSubmit(username.value, password.value, avatar.value. email.value)""
+class="btn btn-success">
+Sign Up
+</button> 
+
+<div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
+
