@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
@@ -27,10 +28,11 @@ import { AlertComponent } from './components/alert/alert.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule
     
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: []
+  entryComponents: [ SignupComponent ]
 })
 export class AppModule { }
