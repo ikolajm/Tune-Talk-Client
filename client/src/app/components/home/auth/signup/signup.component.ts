@@ -30,9 +30,9 @@ export class SignupComponent implements OnInit {
   ) { 
     this.createForm();
 
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate(['/']);
+    // }
   } 
     private createForm() {
       this.registerForm = this.formBuilder.group({
@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
       })
     }
 
-    get f() { return this.registerForm.controls; }
+    // get f() { return this.registerForm.controls; }
 
     private onSubmit() {
     this.submitted = true;
@@ -53,17 +53,20 @@ export class SignupComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.userService.signup(this.registerForm.value)
-      // .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Registration Successful!', true);
-          this.router.navigate(['/user']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-      });  
+    // this.userService.signup(this.registerForm.value)
+    //   // .pipe(first())
+    //   .subscribe(
+    //     data => {
+    //       this.alertService.success('Registration Successful!', true);
+    //       this.router.navigate(['/user']);
+    //     },
+    //     error => {
+    //       this.alertService.error(error);
+    //       this.loading = false;
+    //   });  
+  }
+  closeModal() {
+    this.activeModal.close('Modal Closed');
   }
 
    ngOnInit() {
