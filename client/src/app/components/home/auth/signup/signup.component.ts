@@ -53,17 +53,17 @@ export class SignupComponent implements OnInit {
       return;
     }
     this.loading = true;
-    // this.userService.signup(this.registerForm.value)
-    //   // .pipe(first())
-    //   .subscribe(
-    //     data => {
-    //       this.alertService.success('Registration Successful!', true);
-    //       this.router.navigate(['/user']);
-    //     },
-    //     error => {
-    //       this.alertService.error(error);
-    //       this.loading = false;
-    //   });  
+    this.userService.signup(this.registerForm.value)
+      // .pipe(first())
+      .subscribe(
+        data => {
+          this.alertService.success('Registration Successful!', true);
+          this.router.navigate(['/user']);
+        },
+        error => {
+          this.alertService.error(error);
+          this.loading = false;
+      });  
   }
   closeModal() {
     this.activeModal.close('Modal Closed');

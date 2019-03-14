@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 
 
@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/home/auth/login/login.component';
 import { SignupComponent } from './components/home/auth/signup/signup.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { CommunityComponent } from './components/community/community.component';
 
 
 
@@ -22,11 +23,13 @@ import { AlertComponent } from './components/alert/alert.component';
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    AlertComponent
+    AlertComponent,
+    CommunityComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule
