@@ -16,7 +16,7 @@ export class AppComponent {
 
   openSignup() {
     const modalRef = this.modalService.open(SignupComponent);
-    // modalRef.componentInstance; // should be the id
+    modalRef.componentInstance; // should be the id
     
     modalRef.result.then((result) => {
       console.log(result);

@@ -2,7 +2,7 @@ export class User {
     id: number;
     username: string;
     password: string;
-    avataer: string;
+    avatar_url: string;
     email: string;
     token: string;
 }

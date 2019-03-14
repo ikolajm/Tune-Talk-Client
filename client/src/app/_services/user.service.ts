@@ -12,8 +12,8 @@ export class UserService {
         return this.http.post(`https://localhost:3000/user/signup`, user);
     }
 
-    signin() {
-        return this.http.get<User[]>(`https://localhost:3000/user/signin`);
+    signin(user: User) {
+        return this.http.post(`https://localhost:3000/user/signin`, user);
     }
 
     getById(id: number) {

@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NoopAnimationsModule } from '@angular/platform-browser/animations'; uncomment to disable Material Animations
+import { CustomMaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
@@ -35,6 +36,7 @@ import { CommunityComponent } from './components/community/community.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    CustomMaterialModule,
     BrowserAnimationsModule
     // NoopAnimationsModule uncomment this to disable Material Animations
   ],

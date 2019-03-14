@@ -30,9 +30,9 @@ export class SignupComponent implements OnInit {
   ) { 
     this.createForm();
 
-    // if (this.authenticationService.currentUserValue) {
-    //   this.router.navigate(['/']);
-    // }
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/user/:id']);
+    }
   } 
     private createForm() {
       this.registerForm = this.formBuilder.group({
@@ -43,9 +43,9 @@ export class SignupComponent implements OnInit {
       })
     }
 
-    // get f() { return this.registerForm.controls; }
+    get f() { return this.registerForm.controls; }
 
-    private onSubmit() {
+    onSubmit() {
     this.submitted = true;
     this.activeModal.close(this.registerForm.value);
 
@@ -58,7 +58,7 @@ export class SignupComponent implements OnInit {
       .subscribe(
         data => {
           this.alertService.success('Registration Successful!', true);
-          this.router.navigate(['/user']);
+          this.router.navigate(['/']);
         },
         error => {
           this.alertService.error(error);
