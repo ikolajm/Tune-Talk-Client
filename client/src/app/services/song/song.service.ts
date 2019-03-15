@@ -12,18 +12,18 @@ export class SongService {
   
   // Create
   createSong(playlistId, songObj) {
-    this.http.post(`${this.base}/${playlistId}/song/add`, songObj);
+    return this.http.post(`${this.base}/${playlistId}/song/add`, songObj);
   }
   // Update
   updateSong(songId, songObj) {
-    this.http.put(`${this.base}/song/edit/${songId}`, songObj);
+    return this.http.put(`${this.base}/song/edit/${songId}`, songObj);
   }
   // Delete
   deleteSong(id) {
-    this.http.delete(`${this.base}/song/delete/${id}`)
+    return this.http.delete(`${this.base}/song/delete/${id}`)
   }
   // Delete (admin)
   adminDeleteSong(id) {
-    this.http.delete(`${this.base}/song/delete/${id}/admin`)
+    return this.http.delete(`${this.base}/song/delete/${id}/admin`)
   }
 }

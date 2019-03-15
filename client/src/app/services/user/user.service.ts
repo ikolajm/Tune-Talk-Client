@@ -12,26 +12,26 @@ export class UserService {
 
   // Login
   login(user) {
-    this.http.post(`${this.base}/user/signin`, user)
+    return this.http.post(`${this.base}/user/signin`, user)
   }
   // Singup
   signup(user) {
-    this.http.post(`${this.base}/user/signup`, user)
+    return this.http.post(`${this.base}/user/signup`, user)
   }
   // View single page
   findUser(id) {
-    this.http.get(`${this.base}/user/${id}`)
+    return this.http.get(`${this.base}/user/${id}`)
   }
   // Update
   updateUser(id, user) {
-    this.http.put(`${this.base}/user/edit/${id}`, user)
+    return this.http.put(`${this.base}/user/edit/${id}`, user)
   }
   // Delete
   deleteUser(id) {
-    this.http.delete(`${this.base}/user/delete/${id}`)
+    return this.http.delete(`${this.base}/user/delete/${id}`)
   }
   // Delete (admin)
   adminDeleteUser(id) {
-    this.http.delete(`${this.base}/user/delete/${id}/admin`)
+    return this.http.delete(`${this.base}/user/delete/${id}/admin`)
   }
 }

@@ -12,18 +12,18 @@ export class CommentService {
 
   // Create
   createComment(playlistId, commentObj) {
-    this.http.post(`${this.base}/playlist/${playlistId}/comment/add`, commentObj)
+    return this.http.post(`${this.base}/playlist/${playlistId}/comment/add`, commentObj)
   }
   // Edit
   editComment(commentId, commentObj) {
-    this.http.put(`${this.base}/comment/edit/${commentId}`, commentObj)
+    return this.http.put(`${this.base}/comment/edit/${commentId}`, commentObj)
   } 
   // Delete
   deleteComment(commentId) {
-    this.http.delete(`${this.base}/delete/${commentId}`);
+    return this.http.delete(`${this.base}/delete/${commentId}`);
   }
   // Delete (admin)
   adminDeleteComment(commentId) {
-    this.http.delete(`${this.base}/delete/${commentId}/admin`);
+    return this.http.delete(`${this.base}/delete/${commentId}/admin`);
   }
 }

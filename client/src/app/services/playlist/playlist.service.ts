@@ -11,26 +11,26 @@ export class PlaylistService {
 
   // Get all 
   getAllPlaylists() {
-    this.http.get(`${this.base}`);
+    return this.http.get(`${this.base}`);
   }
   // Get single
   getPlaylist(id) {
-    this.http.get(`${this.base}/${id}`)
+    return this.http.get(`${this.base}/${id}`)
   }
   // Create
   createPlaylist(postObj) {
-    this.http.post(`${this.base}/create`, postObj)
+    return this.http.post(`${this.base}/create`, postObj)
   }
   // Edit
   editPlaylist(playlistId, playlistObj) {
-    this.http.put(`${this.base}/edit/${playlistId}`, playlistObj);
+    return this.http.put(`${this.base}/edit/${playlistId}`, playlistObj);
   }
   // Delete
   deletePlaylist(playlistId) {
-    this.http.delete(`${this.base}/delete/${playlistId}`)
+    return this.http.delete(`${this.base}/delete/${playlistId}`)
   }
   // Delete (admin)
   adminDeletePlaylist(playlistId) {
-    this.http.delete(`${this.base}/delete/${playlistId}/admin`)
+    return this.http.delete(`${this.base}/delete/${playlistId}/admin`)
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../../_services/user.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-user',
@@ -14,15 +14,15 @@ export class UserComponent implements OnInit {
   _data={}
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private userService: UserService) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private US: UserService) { }
 
-  getUser(): void {
-   const id = +this.route.snapshot.paramMap.get('id')
-   this.userService.getById(id)
-   .subscribe(user => this._data = user)
+  getUser() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.US.findUser(id).subscribe(user => {
+      this._data = user;
+    })
   }
 
   ngOnInit() {
-    this.getUser();
   }
 }
