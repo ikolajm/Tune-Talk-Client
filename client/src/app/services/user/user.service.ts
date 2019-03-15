@@ -15,7 +15,15 @@ export class UserService {
 
   // Login
   login(user) {
-    return this.http.post(`${this.base}/user/signin`, user)
+    return this.http.post<any>(`${this.base}/user/signin`, user)
+    .pipe(map(user=>{
+      if(user && user.sessionToken){
+        localStorage.setItem('token', user.sessionToken)
+        this.id=user.user.id;
+        this.role=user.user.role
+      }
+      return user
+  }))
   }
   // Singup
   signup(user) {
