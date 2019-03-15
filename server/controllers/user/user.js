@@ -70,7 +70,7 @@ router.post('/signup', (req, res) => {
             tt_code: 'RED'
         })
     })
-}).
+})
 
 // Signin 
 router.post('/signin', (req, res) => {
