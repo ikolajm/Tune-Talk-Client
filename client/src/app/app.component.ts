@@ -18,10 +18,10 @@ export class AppComponent {
     const modalRef = this.modalService.open(SignupComponent);
     modalRef.componentInstance; // should be the id
     
-    modalRef.result.then((result) => {
-      console.log(result);
-    }).catch((error) => {
-      console.log(error);
-    });
+    // modalRef.result.then((result) => {
+    //   console.log(result);
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
   }
 }

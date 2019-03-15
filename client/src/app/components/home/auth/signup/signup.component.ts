@@ -4,9 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 // import { first } from 'rxjs/operators';
 
-import { AlertService } from '../../../../_services/alert.service';
-import { AuthenticationService } from '../../../../_services/authentication.service';
-import { UserService } from '../../../../_services/user.service';
+
+import { UserService } from '../../../../services/user/user.service';
 
 
 @Component({
@@ -24,15 +23,15 @@ export class SignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     public activeModal: NgbActiveModal,
     private router: Router,
-    private authenticationService: AuthenticationService,
-    private alertService: AlertService,
+    
+    // private alertService: AlertService,
     private userService: UserService
   ) { 
     this.createForm();
 
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/user/:id']);
-    }
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate(['/user/:id']);
+    // }
   } 
     private createForm() {
       this.registerForm = this.formBuilder.group({
@@ -46,6 +45,7 @@ export class SignupComponent implements OnInit {
     get f() { return this.registerForm.controls; }
 
     onSubmit() {
+      console.log(this.registerForm)
     this.submitted = true;
     this.activeModal.close(this.registerForm.value);
 
@@ -57,11 +57,12 @@ export class SignupComponent implements OnInit {
       // .pipe(first())
       .subscribe(
         data => {
-          this.alertService.success('Registration Successful!', true);
-          this.router.navigate(['/']);
+          // this.alertService.success('Registration Successful!', true);
+          console.log(data);
+          this.router.navigate([`/user/${this.userService.id}`]);
         },
         error => {
-          this.alertService.error(error);
+          // this.alertService.error(error);
           this.loading = false;
       });  
   }
