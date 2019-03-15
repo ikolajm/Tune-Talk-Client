@@ -13,7 +13,7 @@ import { UserComponent } from './components/user/user.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/home/auth/login/login.component';
 import { SignupComponent } from './components/home/auth/signup/signup.component';
-import { AlertComponent } from './components/alert/alert.component';
+// import { AlertComponent } from './components/alert/alert.component';
 import { CommunityComponent } from './components/community/community.component';
 
 
@@ -26,7 +26,7 @@ import { CommunityComponent } from './components/community/community.component';
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    AlertComponent,
+    // AlertComponent,
     CommunityComponent
   ],
   imports: [

@@ -1,7 +1,7 @@
 <!--Navbar-->
 
 
-
+<div id='body'>
 <!--router link to community page-->
 <div id='commButton'>
   <button class='community'>Community</button>
@@ -16,10 +16,10 @@
 <!--displays user created playlists-->
 <div class='user'>
   <h1>Playlists by *User</h1>
-  <ul>
-    <li>data</li>
-    <li>data</li>
-    <li>data</li>
+  <ul *ngIf='_data.results'>
+    <li *ngFor='let item of _data.results'>
+      {{ item.name | json }}
+      </li>
   </ul>
 </div>
 
@@ -32,4 +32,4 @@
     <li>data</li>
   </ul>
 </div>
-
+</div>
