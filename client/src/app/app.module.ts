@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NoopAnimationsModule } from '@angular/platform-browser/animations'; uncomment to disable Material Animations
 import { CustomMaterialModule } from './material.module';
+import { MatDialogModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
@@ -15,6 +16,7 @@ import { LoginComponent } from './components/home/auth/login/login.component';
 import { SignupComponent } from './components/home/auth/signup/signup.component';
 // import { AlertComponent } from './components/alert/alert.component';
 import { CommunityComponent } from './components/community/community.component';
+import { MyDialogComponent } from './components/user/my-dialog/my-dialog.component';
 
 
 
@@ -27,7 +29,8 @@ import { CommunityComponent } from './components/community/community.component';
     LoginComponent,
     SignupComponent,
     // AlertComponent,
-    CommunityComponent
+    CommunityComponent,
+    MyDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,11 +40,14 @@ import { CommunityComponent } from './components/community/community.component';
     HttpClientModule,
     NgbModule,
     CustomMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
     // NoopAnimationsModule uncomment this to disable Material Animations
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ SignupComponent ]
+  entryComponents: [
+     SignupComponent,
+    MyDialogComponent ]
 })
 export class AppModule { }

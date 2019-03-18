@@ -8,6 +8,7 @@ import { UserComponent } from './components/user/user.component';
 import { CommunityComponent } from './components/community/community.component';
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },

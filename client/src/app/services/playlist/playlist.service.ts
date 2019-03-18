@@ -1,5 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token')
+
+  })
+}
  
 @Injectable({
   providedIn: 'root'
@@ -19,7 +28,7 @@ export class PlaylistService {
   }
   // Create
   createPlaylist(postObj) {
-    return this.http.post(`${this.base}/create`, postObj)
+    return this.http.post<any>(`${this.base}/create`, postObj, httpOptions)
   }
   // Edit
   editPlaylist(playlistId, playlistObj) {
