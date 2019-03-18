@@ -1,0 +1,22 @@
+.created{
+    margin-left: 55%;
+    margin-top: -9%
+}
+
+.user{
+    margin-left: 20%;
+}
+
+.community{
+    margin-left: 40%;
+    font-size: 45px;
+}
+
+.createPlaylist{
+    margin-left: 42%;
+    font-size: 25px;
+}
+
+#body{
+    background-color: #3D7068;
+}
