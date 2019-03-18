@@ -7,14 +7,17 @@ import { HomeComponent } from './components/home/home.component';
 import { UserComponent } from './components/user/user.component';
 import { CommunityComponent } from './components/community/community.component';
 
+import { AuthGuard } from './_guards/AuthGuard';
+
 
 const routes: Routes = [
-  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'user/:id', component: UserComponent },
-  { path: 'community', component: CommunityComponent}
+  { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'community', component: CommunityComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

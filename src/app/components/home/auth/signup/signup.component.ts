@@ -15,6 +15,7 @@ import { UserService } from '../../../../services/user/user.service';
 })
 export class SignupComponent implements OnInit {
   @Input ()
+  
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -26,13 +27,13 @@ export class SignupComponent implements OnInit {
     
     // private alertService: AlertService,
     private userService: UserService
-  ) { 
+    ) { 
     this.createForm();
 
     // if (this.authenticationService.currentUserValue) {
     //   this.router.navigate(['/user/:id']);
     // }
-  } 
+    } 
     private createForm() {
       this.registerForm = this.formBuilder.group({
         username: ['', Validators.required],

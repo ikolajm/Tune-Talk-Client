@@ -45,6 +45,6 @@ import { CommunityComponent } from './components/community/community.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: []
+  // entryComponents: []
 })
 export class AppModule { }

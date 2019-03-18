@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 // import { first } from 'rxjs/operators';
@@ -14,16 +14,17 @@ import { UserService } from '../../../../services/user/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  @Input ()
+  // @Input ()
   loginForm: FormGroup;
   loading = false;
   submitted = false;
+  // error = '';
 
   constructor(
     private formBuilder: FormBuilder,
     public activeModal: NgbActiveModal,
     private router: Router,
-    
+    private route: ActivatedRoute,
     // private alertService: AlertService,
     private userService: UserService
   ) { 
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  get f() { return this.loginForm.controls; }
+  get f() { return this.loginForm.controls;  }
+ 
 
   onSubmit() {
     console.log(this.loginForm)
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         // this.alertService.success('Registration Successful!', true);
-        console.log(data);
+        // console.log(data);
         this.router.navigate([`/user/${this.userService.id}`]);
       },
       error => {
@@ -66,6 +68,7 @@ closeModal() {
 }
 
   ngOnInit() {
+    
   }
 
 }
