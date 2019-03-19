@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogClose} from '@angular/material';
 import { PlaylistService } from 'src/app/services/playlist/playlist.service';
+
 
 @Component({
   selector: 'app-user',
@@ -23,7 +24,12 @@ export class UserComponent implements OnInit {
   
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private US: UserService, public dialog: MatDialog, private PLService: PlaylistService) { }
+  constructor(private http: HttpClient, 
+    private route: ActivatedRoute,
+    private router: Router, 
+    private US: UserService, 
+    public dialog: MatDialog, 
+    private PLService: PlaylistService) { }
 
   getUser() {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -45,6 +51,11 @@ export class UserComponent implements OnInit {
       this.name = result;
     });
 
+  }
+
+  commPageNav() {
+    // this.PLService.getAllPlaylists();
+    this.router.navigate(['/community']);
   }
 
 
