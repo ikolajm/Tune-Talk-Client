@@ -47,6 +47,14 @@ export class UserComponent implements OnInit {
 
   }
 
+  // getPlaylist() {
+  //   console.log('got playlist')
+  //   const id = this.getUser.id
+  //   this.PLService.getPlaylist(id).subscribe(playlist => {
+  //     console.log(playlist)
+  //   })
+  // }
+
 
   ngOnInit() {
     this.getUser()

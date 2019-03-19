@@ -18,7 +18,7 @@
   <h1>Playlists by *Users</h1>
   <ul *ngIf='_data.results'>
     <li *ngFor='let playlist of _data.results.playlists'>
-      {{ playlist.name}}
+      <button class='selectPlayButton' mat-raised-button (click)="getPlaylist()">{{ playlist.name}}</button>
       </li>
   </ul>
 </div>
