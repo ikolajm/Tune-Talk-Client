@@ -4,21 +4,21 @@
 <div id='body'>
 <!--router link to community page-->
 <div id='commButton'>
-  <button class='community'>Community</button>
+  <button class='community' mat-raised-button>Community</button>
 </div>
 
 
-<!--onSubmit will bring up modal for playlist creation-->
+<!--onClick will bring up modal for playlist creation-->
 <div id='playlistButton'>
-  <button class='createPlaylist'>Create Playlist</button>
+  <button class='createPlaylist' mat-raised-button (click)="test()" >Create Playlist</button>
 </div>
 
 <!--displays user created playlists-->
 <div class='user'>
-  <h1>Playlists by *User</h1>
+  <h1>Playlists by *Users</h1>
   <ul *ngIf='_data.results'>
-    <li *ngFor='let item of _data.results'>
-      {{ item.name | json }}
+    <li *ngFor='let playlist of _data.results.playlists'>
+      {{ playlist.name}}
       </li>
   </ul>
 </div>

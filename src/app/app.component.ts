@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+// import { Router } from '@angular/router';
+import { SignupComponent } from '../app/components/home/auth/signup/signup.component'
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SignupComponent } from '../app/components/home/auth/signup/signup.component';
 import { LoginComponent } from '../app/components/home/auth/login/login.component';
 
 import { UserService } from './services/user/user.service';
