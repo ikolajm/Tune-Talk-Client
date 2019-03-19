@@ -35,6 +35,8 @@ import { MyDialogComponent } from './components/user/my-dialog/my-dialog.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

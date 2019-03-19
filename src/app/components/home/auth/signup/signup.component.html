@@ -1,7 +1,7 @@
 <div class="modal-header">
   <h4 class="modal-title">Create User</h4>
   <button type="button" class="close" aria-label="Close"></button>
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" routerLink="/user/:id" routerLinkActive="active">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
               <label for="username">Username</label>
               <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />

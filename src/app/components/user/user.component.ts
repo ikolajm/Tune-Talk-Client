@@ -19,6 +19,8 @@ export class UserComponent implements OnInit {
   artist: string;
   thumbnail: string;
   _playlistData={};
+  baseUrl = 'http://localhost3000';
+  
 
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private US: UserService, public dialog: MatDialog, private PLService: PlaylistService) { }

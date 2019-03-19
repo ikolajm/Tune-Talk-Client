@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
+import { User } from '../../_models/user';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +13,17 @@ export class UserService {
   base = 'http://localhost:3000';
   public id: number;
   public role: string;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user.token')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+}
 
   // Login
   login(user) {
@@ -20,11 +32,14 @@ export class UserService {
       if(user && user.sessionToken){
         localStorage.setItem('token', user.sessionToken)
         this.id=user.user.id;
-        this.role=user.user.role
+        
+        this.role=user.user.role;
+        console.log(user);
       }
       return user
-  }))
+    }))
   }
+
   // Singup
   signup(user) {
     return this.http.post<any>(`${this.base}/user/signup`, user)
@@ -34,9 +49,19 @@ export class UserService {
         this.id=user.user.id;
         this.role=user.user.role
       }
-      return user
+      return user;
+      
   }))
 }
+
+  //Logout
+  logout() {
+    localStorage.removeItem('token');
+    this.id = undefined;
+    this.role = undefined;
+    this.currentUserSubject.next(null);
+  }
+  
   // View single page
   findUser(id) {
     return this.http.get(`${this.base}/user/${id}`)
