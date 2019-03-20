@@ -1,0 +1,13 @@
+
+<form [formGroup]='songForm'>
+  <label for="name">Name</label>
+    <input formControlName="name">
+  <label for='album'>Album</label>
+    <input formControlName='album'>
+  <label for='artist'>Artist</label>
+    <input formControlName="artist">
+  <label for='thumbnail'>Thumbnail</label>
+    <input formControlName="thumbnail">
+
+  <button mat-raised-button (click)='onClick()'>Done</button>
+</form>

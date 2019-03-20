@@ -1,5 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token')
+
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +19,12 @@ export class SongService {
   constructor(private http: HttpClient) { }
   
   // Create
-  createSong(playlistId, songObj) {
-    return this.http.post(`${this.base}/${playlistId}/song/add`, songObj);
+  createSong(playlistObj, songObj) {
+    return this.http.post(`${this.base}/${playlistObj.results.id}/song/add`, songObj, httpOptions);
   }
   // Update
   updateSong(songId, songObj) {
-    return this.http.put(`${this.base}/song/edit/${songId}`, songObj);
+    return this.http.put(`${this.base}/song/edit/${songId}`, songObj, httpOptions);
   }
   // Delete
   deleteSong(id) {

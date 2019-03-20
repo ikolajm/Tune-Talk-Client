@@ -32,7 +32,7 @@ export class PlaylistService {
   }
   // Edit
   editPlaylist(playlistId, playlistObj) {
-    return this.http.put(`${this.base}/edit/${playlistId}`, playlistObj);
+    return this.http.put(`${this.base}/edit/${playlistId}`, playlistObj, httpOptions);
   }
   // Delete
   deletePlaylist(playlistId) {
@@ -41,5 +41,10 @@ export class PlaylistService {
   // Delete (admin)
   adminDeletePlaylist(playlistId) {
     return this.http.delete(`${this.base}/delete/${playlistId}/admin`)
+  }
+
+  // Playlist refresh
+  playlistRefresh(playlist) {
+    return this.http.get(`${this.base}/${playlist.results.id}`);
   }
 }
