@@ -17,6 +17,7 @@ import { SignupComponent } from './components/home/auth/signup/signup.component'
 // import { AlertComponent } from './components/alert/alert.component';
 import { CommunityComponent } from './components/community/community.component';
 import { MyDialogComponent } from './components/user/my-dialog/my-dialog.component';
+import { CommentComponent } from './components/community/comment/comment.component';
 
 
 
@@ -30,7 +31,8 @@ import { MyDialogComponent } from './components/user/my-dialog/my-dialog.compone
     SignupComponent,
     // AlertComponent,
     CommunityComponent,
-    MyDialogComponent
+    MyDialogComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { MyDialogComponent } from './components/user/my-dialog/my-dialog.compone
   bootstrap: [AppComponent],
   entryComponents: [
      SignupComponent,
-    MyDialogComponent ]
+    MyDialogComponent,
+    CommentComponent ]
 })
 export class AppModule { }
