@@ -1,0 +1,16 @@
+<h1 mat-dialog-title> {{ data.playlist.results.name }} <img mat-card-lg-image align="end" [src]="data.playlist.results.thumbnail"></h1>
+    <h2 mat-dialog-subtitle> {{ data.playlist.results.owner }} </h2>
+      
+  <mat-dialog-content>
+      <!-- song info with divider -->
+<!-- <mat-card-content> Songs Info </mat-card-content> -->
+    
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+      <button (click)="favPlaylist()" mat-button>
+          <mat-icon>star</mat-icon>   
+      </button>
+      <button (click)="openComments()" mat-button>Comments...</button>
+     
+  </mat-dialog-actions>
