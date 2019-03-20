@@ -20,10 +20,8 @@ export class MyDialogComponent implements OnInit {
 
    private createForm(){
      this.playlistForm = this.formBuilder.group({
-       
        thumbnail: '',
        name: ''
-    
      })
    }
 
