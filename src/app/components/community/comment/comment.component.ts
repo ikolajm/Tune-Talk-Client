@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { CommentService } from 'src/app/services/comment/comment.service';
+import { FormGroup, FormBuilder, Form} from '@angular/forms';
 
 
 @Component({
@@ -12,27 +14,40 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 
 export class CommentComponent implements OnInit {
 
+  commentForm: FormGroup
+
   constructor
     (@Inject(MAT_DIALOG_DATA)
-      public data: any) { }
+      public data: any,
+      private commentService: CommentService,
+      private formBuilder: FormBuilder
+      ) { 
+        this.createForm()
+      }
 
-
-      //call function for opening comments section
-        openComments() {
-
+        private createForm(){
+          this.commentForm = this.formBuilder.group({
+            content: ''
+          })
         }
 
 
 
       //need button for submitting comments
-        onSubmit() {
-
+        onSubmit(playlistId) {
+          console.log(this.data)
+          console.log(playlistId)
+          console.log(this.commentForm.value)
+          this.commentService.createComment(playlistId, this.commentForm.value).subscribe(data => {
+            console.log('I worked!')
+          })
         }
 
 
       //need button for cancel comments and exit playlist view
         
   ngOnInit() {
+
   }
 
 }

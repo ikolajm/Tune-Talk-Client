@@ -1,5 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token')
+
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +16,16 @@ export class CommentService {
 
   base = 'http://localhost:3000'
 
+  httpHeaders = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token')
+  })
+
   constructor(private http: HttpClient) { }
 
   // Create
   createComment(playlistId, commentObj) {
-    return this.http.post(`${this.base}/playlist/${playlistId}/comment/add`, commentObj)
+    return this.http.post(`${this.base}/playlist/${playlistId}/comment/add`, commentObj, httpOptions)
   }
   // Edit
   editComment(commentId, commentObj) {

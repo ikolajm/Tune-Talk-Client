@@ -3,13 +3,11 @@
       
   <mat-dialog-content>
       <mat-list>                                              
-                                                    <!-- Artist-song display -->
-          <mat-list-item>Item 1</mat-list-item>     
+         <div *ngFor=" let song of data.playlist.results.songs">                                         <!-- Artist-song display -->
+          <mat-list-item> {{ song.name }} - {{ song.artist }} </mat-list-item>     
           <mat-divider></mat-divider>
-          <mat-list-item>Item 2</mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Item 3</mat-list-item>
-          <mat-divider></mat-divider>
+        
+        </div>  
       </mat-list>
 
                                                       <!-- buttons -->
@@ -20,10 +18,8 @@
         <button (click)="onSubmit()" mat-button>Submit</button>
     </mat-dialog-actions> -->
 
-
-
       <mat-accordion class="example-headers-align">
-          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+          <mat-expansion-panel [expanded]="step === 0"  hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
                 View Comments
@@ -35,11 +31,17 @@
             </mat-expansion-panel-header>
             <mat-list>                                              
                 <!-- Comment display -->
-                <mat-list-item>Item 1</mat-list-item>     
+                <div *ngFor="let comment of data.playlist.results.comments">
+                  <mat-divider></mat-divider>
+                  <mat-list-item>{{comment.avatar}} - {{comment.owner}}</mat-list-item>
+                  <mat-list-item>
+                    {{ comment.content }}
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                </div>
+                <!-- <mat-list-item>Item 2</mat-list-item>
                 <mat-divider></mat-divider>
-                <mat-list-item>Item 2</mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item>Item 3</mat-list-item>
+                <mat-list-item>Item 3</mat-list-item> -->
             </mat-list>
             
             
@@ -48,16 +50,15 @@
               <input matInput placeholder="Enter comment...">
             </mat-form-field> -->
         
-            <p>
-                <mat-form-field appearance="fill">
-                  <mat-label>Enter comment...</mat-label>
-                  <input matInput placeholder="Placeholder">
+            <form [formGroup]='commentForm'>
+                <mat-form-field appearance="fill" class="full-width">
+                    <textarea matInput placeholder="Leave a comment..."></textarea>
                   
                 </mat-form-field>
-            </p>
+            </form>
         
             <mat-action-row>
-              <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+              <button mat-button color="primary" (click)="onSubmit(data.playlist.results.id)">Submit</button>
             </mat-action-row>
           </mat-expansion-panel>
         </mat-accordion>

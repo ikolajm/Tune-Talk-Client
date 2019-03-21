@@ -15,7 +15,7 @@
 
 <!--displays user created playlists-->
 <div class='user'>
-  <h1>Playlists by *Users</h1>
+  <h1>Playlists by {{_data.results.username}}</h1>
   <ul *ngIf='_data.results'>
     <li *ngFor='let playlist of _data.results.playlists'>
       <button class='selectPlayButton' mat-raised-button (click)="getPlaylist(playlist.id)">{{ playlist.name }}</button>
@@ -29,17 +29,17 @@
 
 <!--displays selected playlist-->
 <div class='created'>
-  <h1>*Playlist title</h1>
+  <h1>Your Playlists</h1>
   <ul>
     <div>
-      THIS IS OUR DATA OBJECT 
       <h2>{{ _playlistData.results.name }}</h2>
       <ul>
         <h3>Songs:</h3>
         <div *ngIf="_playlistData.results">
           <div *ngFor="let song of _playlistData.results.songs"> 
-            <h3>{{ song.name }}</h3>
+            <h3>{{ song.name }} {{ song.artist }}</h3>
             <button class='editPlaylistButton' mat-raised-button (click)='editToggle()'>Edit</button>
+            <button class='deleteSongButton' mat-raised-button (click)='delete(song.id)'>Delete</button>
             <div *ngIf="editSong"> 
                 <form [formGroup]='editForm'>
                     <label for="name">Name</label>
@@ -50,7 +50,7 @@
                       <input formControlName="artist">
                     <label for='thumbnail'>Thumbnail</label>
                       <input formControlName="thumbnail">
-                    <button mat-raised-button (click)='onEdit()'>Done</button>
+                    <button mat-raised-button (click)='onEdit(song.id)'>Done</button>
                     </form>
                     </div>
           </div>
@@ -59,9 +59,11 @@
     </div>
   </ul>
         <!-- add -->
+        <div *ngIf='_playlistData.results'>
       <button class='addSongButton' mat-raised-button (click)='songToggle()'>Add Song</button>
         <div *ngIf="addSong">
       <app-song-dialog [playlist]="_playlistData"></app-song-dialog>
+      </div>
       </div>
       <!-- edit -->
       <!-- <button class='editPlaylistButton' mat-raised-button (click)='editToggle()'>Edit</button>
