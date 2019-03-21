@@ -59,9 +59,11 @@
     </div>
   </ul>
         <!-- add -->
+        <div *ngIf='_playlistData.results'>
       <button class='addSongButton' mat-raised-button (click)='songToggle()'>Add Song</button>
         <div *ngIf="addSong">
       <app-song-dialog [playlist]="_playlistData"></app-song-dialog>
+      </div>
       </div>
       <!-- edit -->
       <!-- <button class='editPlaylistButton' mat-raised-button (click)='editToggle()'>Edit</button>
