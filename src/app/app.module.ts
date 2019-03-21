@@ -34,7 +34,7 @@ import { SongDialogComponent } from './components/user/song-dialog/song-dialog.c
     // AlertComponent,
     CommunityComponent,
     MyDialogComponent,
-    CommentComponent
+    CommentComponent,
     SongDialogComponent
   ],
   imports: [
@@ -56,7 +56,7 @@ import { SongDialogComponent } from './components/user/song-dialog/song-dialog.c
   entryComponents: [
      SignupComponent,
     MyDialogComponent,
-    CommentComponent ]
+    CommentComponent ,
     SongDialogComponent ]
 })
 export class AppModule { }
