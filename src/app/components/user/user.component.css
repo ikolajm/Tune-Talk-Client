@@ -1,6 +1,6 @@
 .created{
     margin-left: 60%;
-    margin-top: -3%
+    margin-top: -170px;
 }
 
 .user{
@@ -11,6 +11,7 @@
 .community{
     margin-left: 40%;
     font-size: 45px;
+    margin-top: 100px;
 }
 
 .createPlaylist{

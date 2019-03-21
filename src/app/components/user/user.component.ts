@@ -31,6 +31,8 @@ export class UserComponent implements OnInit {
   addPlaylist = false
   editSong = false
   editForm: FormGroup
+  classShow = false
+  active = {}
 
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private US: UserService, public dialog: MatDialog, private PLService: PlaylistService, private formBuilder: FormBuilder, private sService: SongService) {
@@ -61,6 +63,11 @@ export class UserComponent implements OnInit {
     this.US.findUser(id).subscribe(user => {
       this._data = user;
     })
+  }
+
+  delete(songId){
+    this.sService.deleteSong(songId).subscribe(results =>
+      console.log(results))
   }
 
 
@@ -111,6 +118,7 @@ export class UserComponent implements OnInit {
     let data = this.editSong;
     this.editSong = !data
   }
+
 
 
   ngOnInit() {
