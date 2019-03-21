@@ -1,15 +1,7 @@
 <form [formGroup]='playlistForm'>
-<mat-form-field>
-  <input matInput formControlName='thumbnail' placeholder="Thumbnail">
-</mat-form-field>
-<mat-form-field>
-  <input matInput formControlName="name" placeholder="Playlist Name">
-</mat-form-field>
-<!-- <mat-form-field>
-  <input matInput formControlName="artist" placeholder="Artist">
-</mat-form-field>
-<mat-form-field>
-  <input matInput formControlName="thumbnail" placeholder="Thumbnail">
-</mat-form-field> -->
-<button mat-raised-button (click)='onSubmit()' mat-dialog-close>Done</button>
-</form>
+    <label for="name">Name</label>
+      <input formControlName="name">
+    <label for='thumbnail'>Thumbnail</label>
+      <input formControlName="thumbnail">
+    <button mat-raised-button (click)='onSubmit()'>Done</button>
+  </form>
