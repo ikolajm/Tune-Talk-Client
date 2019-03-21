@@ -45,7 +45,7 @@ export class CommunityComponent implements OnInit {
     this.playlistService.getPlaylist(id).subscribe(data => {
       this.active = data
       const dialogPlaylist = this.dialog.open(CommentComponent, {
-        width: '600px', height: '400px',
+        width: '600px', height: '800px',
         data: {playlist: this.active}
       })
   
