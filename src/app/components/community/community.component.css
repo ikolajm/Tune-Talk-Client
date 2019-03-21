@@ -1,0 +1,8 @@
+.comm-card {
+    max-width: 400px;
+    /* background-image: url('../../../assets/21450369.png') */
+}
+
+.playlist-art {
+    background-size: cover;  
+}

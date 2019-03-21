@@ -24,7 +24,7 @@ export class PlaylistService {
   }
   // Get single
   getPlaylist(id) {
-    return this.http.get(`${this.base}/${id}`)
+    return this.http.get(`${this.base}/${id}`);
   }
   // Create
   createPlaylist(postObj) {
