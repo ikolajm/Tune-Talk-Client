@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
   active = {}
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private US: UserService, public dialog: MatDialog, private PLService: PlaylistService, private formBuilder: FormBuilder, private sService: SongService) {
+  constructor(private http: HttpClient, private route: ActivatedRoute, private US: UserService, public dialog: MatDialog, private PLService: PlaylistService, private formBuilder: FormBuilder, private sService: SongService, private router: Router) {
     this.createForm()
    }
 
@@ -50,12 +50,7 @@ export class UserComponent implements OnInit {
      })
    }
 
-  constructor(private http: HttpClient, 
-    private route: ActivatedRoute,
-    private router: Router, 
-    private US: UserService, 
-    public dialog: MatDialog, 
-    private PLService: PlaylistService) { }
+
 
 
    //edit song in playlist
