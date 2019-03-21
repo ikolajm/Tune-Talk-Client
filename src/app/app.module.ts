@@ -18,6 +18,8 @@ import { SignupComponent } from './components/home/auth/signup/signup.component'
 import { CommunityComponent } from './components/community/community.component';
 import { MyDialogComponent } from './components/user/my-dialog/my-dialog.component';
 import { CommentComponent } from './components/community/comment/comment.component';
+import { SongDialogComponent } from './components/user/song-dialog/song-dialog.component';
+
 
 
 
@@ -33,6 +35,7 @@ import { CommentComponent } from './components/community/comment/comment.compone
     CommunityComponent,
     MyDialogComponent,
     CommentComponent
+    SongDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,5 +57,6 @@ import { CommentComponent } from './components/community/comment/comment.compone
      SignupComponent,
     MyDialogComponent,
     CommentComponent ]
+    SongDialogComponent ]
 })
 export class AppModule { }
