@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogClose} from '@angular/material';
@@ -8,6 +8,7 @@ import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 import { SongDialogComponent } from './song-dialog/song-dialog.component';
 import { NgModel, FormGroup, FormBuilder } from '@angular/forms';
 import { SongService } from '../../services/song/song.service'
+
 
 
 
@@ -39,6 +40,7 @@ export class UserComponent implements OnInit {
     this.createForm()
    }
 
+
    private createForm(){
      this.editForm = this.formBuilder.group({
       name: '',
@@ -47,6 +49,14 @@ export class UserComponent implements OnInit {
       thumbnail:''
      })
    }
+
+  constructor(private http: HttpClient, 
+    private route: ActivatedRoute,
+    private router: Router, 
+    private US: UserService, 
+    public dialog: MatDialog, 
+    private PLService: PlaylistService) { }
+
 
    //edit song in playlist
    onEdit(songId){
@@ -117,6 +127,11 @@ export class UserComponent implements OnInit {
   editToggle(){
     let data = this.editSong;
     this.editSong = !data
+  }
+
+  commPageNav() {
+    // this.PLService.getAllPlaylists();
+    this.router.navigate(['/community']);
   }
 
 
