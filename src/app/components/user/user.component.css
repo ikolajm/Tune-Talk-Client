@@ -1,6 +1,6 @@
 .created{
     margin-left: 60%;
-    margin-top: -170px;
+    margin-top: -210px;
 }
 
 .user{
@@ -22,4 +22,5 @@
 #body{
     background-color: #48BEFF;
     padding-bottom: 500px;
+    color: white;
 }
