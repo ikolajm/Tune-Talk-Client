@@ -15,6 +15,9 @@ import { FormGroup, FormBuilder, Form} from '@angular/forms';
 export class CommentComponent implements OnInit {
 
   commentForm: FormGroup
+  editContent = ''
+  userId = Number(localStorage.getItem('userId'))
+  isAdmin = false;
 
   constructor
     (@Inject(MAT_DIALOG_DATA)
@@ -32,7 +35,6 @@ export class CommentComponent implements OnInit {
         }
 
 
-
       //need button for submitting comments
         onSubmit(playlistId) {
           console.log(this.data)
@@ -42,12 +44,40 @@ export class CommentComponent implements OnInit {
             console.log('I worked!')
           })
         }
+        
+        
+
+        edit(id) {
+          let content = {
+            content: this.editContent
+          }
+          this.commentService.editComment(id, content).subscribe(data => {
+            console.log(content)
+          })
+        }
+      
+
+        delete(id) {
+          this.commentService.deleteComment(id)
+          .subscribe(data => {
+            console.log('comment deleted')
+          })
+        }
+
+        deleteAdmin(id) {
+          this.commentService.adminDeleteComment(id).subscribe(data => {
+            console.log('Comment deleted')
+          })
+        }
 
 
       //need button for cancel comments and exit playlist view
         
   ngOnInit() {
-
+    console.log(this.userId);
+    if (localStorage.getItem('role') === 'admin'){
+      this.isAdmin = true;
+    }
   }
 
 }

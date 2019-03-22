@@ -29,14 +29,14 @@ export class CommentService {
   }
   // Edit
   editComment(commentId, commentObj) {
-    return this.http.put(`${this.base}/comment/edit/${commentId}`, commentObj)
+    return this.http.put(`${this.base}/comment/edit/${commentId}`, commentObj, httpOptions)
   } 
   // Delete
   deleteComment(commentId) {
-    return this.http.delete(`${this.base}/delete/${commentId}`);
+    return this.http.delete(`${this.base}/comment/delete/${commentId}`, httpOptions);
   }
   // Delete (admin)
   adminDeleteComment(commentId) {
-    return this.http.delete(`${this.base}/delete/${commentId}/admin`);
+    return this.http.delete(`${this.base}/comment/delete/${commentId}/admin`, httpOptions);
   }
 }
