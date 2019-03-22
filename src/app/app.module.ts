@@ -17,7 +17,9 @@ import { SignupComponent } from './components/home/auth/signup/signup.component'
 // import { AlertComponent } from './components/alert/alert.component';
 import { CommunityComponent } from './components/community/community.component';
 import { MyDialogComponent } from './components/user/my-dialog/my-dialog.component';
+import { CommentComponent } from './components/community/comment/comment.component';
 import { SongDialogComponent } from './components/user/song-dialog/song-dialog.component';
+
 
 
 
@@ -32,6 +34,7 @@ import { SongDialogComponent } from './components/user/song-dialog/song-dialog.c
     // AlertComponent,
     CommunityComponent,
     MyDialogComponent,
+    CommentComponent
     SongDialogComponent
   ],
   imports: [
@@ -53,6 +56,7 @@ import { SongDialogComponent } from './components/user/song-dialog/song-dialog.c
   entryComponents: [
      SignupComponent,
     MyDialogComponent,
+    CommentComponent ]
     SongDialogComponent ]
 })
 export class AppModule { }
