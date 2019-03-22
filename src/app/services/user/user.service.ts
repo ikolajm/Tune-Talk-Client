@@ -15,6 +15,7 @@ export class UserService {
   public role: string;
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  userId = ''
 
   constructor(private http: HttpClient) { 
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user.token')));
@@ -32,6 +33,7 @@ export class UserService {
       if(user && user.sessionToken){
         localStorage.setItem('token', user.sessionToken)
         this.id=user.user.id;
+        localStorage.setItem('userId', user.user.id)
         
         this.role=user.user.role;
         console.log(user);
