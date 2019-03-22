@@ -1,6 +1,14 @@
 .comm-card {
-    max-width: 400px;
+    width: 22vw;
+    height: 20vw;
+    text-align: center;
+    
     /* background-image: url('../../../assets/21450369.png') */
+}
+
+.deck {
+    display: inline-block;
+    padding: 4em 2em 2em 1em;
 }
 
 .playlist-art {

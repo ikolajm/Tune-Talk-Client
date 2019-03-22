@@ -32,7 +32,8 @@ export class UserService {
     .pipe(map(user=>{
       if(user && user.sessionToken){
         localStorage.setItem('token', user.sessionToken)
-        this.id=user.user.id;
+        this.userId = user.user.id
+        localStorage.setItem('role', user.user.role)
         localStorage.setItem('userId', user.user.id)
         
         this.role=user.user.role;
@@ -49,6 +50,8 @@ export class UserService {
       if(user && user.sessionToken){
         localStorage.setItem('token', user.sessionToken)
         this.id=user.user.id;
+        this.userId = user.user.id
+        localStorage.setItem('userId', this.userId)
         this.role=user.user.role
       }
       return user;
@@ -58,9 +61,10 @@ export class UserService {
 
   //Logout
   logout() {
-    localStorage.removeItem('token');
+    localStorage.clear()
     this.id = undefined;
     this.role = undefined;
+    this.userId = undefined
     this.currentUserSubject.next(null);
   }
   

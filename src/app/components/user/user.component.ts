@@ -36,7 +36,15 @@ export class UserComponent implements OnInit {
   active = {}
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private US: UserService, public dialog: MatDialog, private PLService: PlaylistService, private formBuilder: FormBuilder, private sService: SongService, private router: Router) {
+  constructor(private http: HttpClient, 
+    private route: ActivatedRoute, 
+    private US: UserService, 
+    public dialog: MatDialog, 
+    private PLService: PlaylistService, 
+    private formBuilder: FormBuilder, 
+    private sService: SongService, 
+    private router: Router) 
+    {
     this.createForm()
    }
 
