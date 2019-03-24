@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { User } from '../../_models/user';
 import { BehaviorSubject, Observable } from 'rxjs';
+import {APIURL} from '../../environments/environment.prod';
+
 
 
 @Injectable({
@@ -28,7 +30,7 @@ export class UserService {
 
   // Login
   login(user) {
-    return this.http.post<any>(`${this.base}/user/signin`, user)
+    return this.http.post<any>(`${APIURL}/user/signin`, user)
     .pipe(map(user=>{
       if(user && user.sessionToken){
         localStorage.setItem('token', user.sessionToken)
@@ -45,7 +47,7 @@ export class UserService {
 
   // Singup
   signup(user) {
-    return this.http.post<any>(`${this.base}/user/signup`, user)
+    return this.http.post<any>(`${APIURL}/user/signup`, user)
     .pipe(map(user=>{
       if(user && user.sessionToken){
         localStorage.setItem('token', user.sessionToken)
@@ -70,18 +72,18 @@ export class UserService {
   
   // View single page
   findUser(id) {
-    return this.http.get(`${this.base}/user/${id}`)
+    return this.http.get(`${APIURL}/user/${id}`)
   }
   // Update
   updateUser(id, user) {
-    return this.http.put(`${this.base}/user/edit/${id}`, user)
+    return this.http.put(`${APIURL}/user/edit/${id}`, user)
   }
   // Delete
   deleteUser(id) {
-    return this.http.delete(`${this.base}/user/delete/${id}`)
+    return this.http.delete(`${APIURL}/user/delete/${id}`)
   }
   // Delete (admin)
   adminDeleteUser(id) {
-    return this.http.delete(`${this.base}/user/delete/${id}/admin`)
+    return this.http.delete(`${APIURL}/user/delete/${id}/admin`)
   }
 }

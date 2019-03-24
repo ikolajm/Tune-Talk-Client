@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {APIURL} from '../../environments/environment.prod';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,7 +15,7 @@ const httpOptions = {
 })
 export class CommentService {
 
-  base = 'http://localhost:3000'
+  base = `${APIURL}`
 
   httpHeaders = new Headers({
     'Content-Type': 'application/json',

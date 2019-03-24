@@ -3,8 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true
 };
+
+export let APIURL = '';
+
+switch (window.location.hostname) {
+  case 'tune-talk-client.herokuapp.com':
+  APIURL = 'https://tune-talk-client.herokuapp.com'
+  break;
+
+default:
+  APIURL = 'http://localhost:4200';
+}
+
 
 /*
  * For easier debugging in development mode, you can import the following file
