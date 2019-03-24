@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {APIURL} from '../../environments/environment.prod';
+import {APIURL} from '../../../environments/environment.prod';
 
 const httpOptions = {
   headers: new HttpHeaders({
