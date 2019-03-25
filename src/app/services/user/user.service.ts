@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { User } from '../../_models/user';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {APIURL} from '../../../environments/environment.prod';
 
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token')
+
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +37,7 @@ export class UserService {
 
   // Login
   login(user) {
-    return this.http.post<any>(`${APIURL}/user/signin`, user)
+    return this.http.post<any>(`${APIURL}/user/signin`, user, httpOptions)
     .pipe(map(user=>{
       if(user && user.sessionToken){
         localStorage.setItem('token', user.sessionToken)
@@ -47,7 +54,7 @@ export class UserService {
 
   // Singup
   signup(user) {
-    return this.http.post<any>(`${APIURL}/user/signup`, user)
+    return this.http.post<any>(`${APIURL}/user/signup`, user, httpOptions)
     .pipe(map(user=>{
       if(user && user.sessionToken){
         localStorage.setItem('token', user.sessionToken)
