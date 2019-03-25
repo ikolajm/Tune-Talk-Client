@@ -13,8 +13,8 @@ import { UserService } from '../../../../services/user/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  // @Input ()
+  @Input ()
+  
   loginForm: FormGroup;
   loading = false;
   submitted = false;
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   private createForm() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]] 
+      password: ['']
     })
   }
 
@@ -55,10 +55,11 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         // this.alertService.success('Registration Successful!', true);
-        // console.log(data);
-        this.router.navigate([`/user/${this.userService.id}`]);
+        console.log(data, 'this is the data');
+        this.router.navigate([`/user/${this.userService.userId}`]);
       },
       error => {
+        console.log(error)
         // this.alertService.error(error);
         this.loading = false;
     });  

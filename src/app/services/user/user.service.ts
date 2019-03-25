@@ -8,9 +8,7 @@ import {APIURL} from '../../../environments/environment.prod';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': localStorage.getItem('token')
-
+    'Content-Type': 'application/json'
   })
 }
 
@@ -43,7 +41,7 @@ export class UserService {
         localStorage.setItem('token', user.sessionToken)
         this.userId = user.user.id
         localStorage.setItem('role', user.user.role)
-        localStorage.setItem('userId', user.user.id)
+        localStorage.setItem('userId', this.userId)
         
         this.role=user.user.role;
         console.log(user);
