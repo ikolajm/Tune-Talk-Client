@@ -18,6 +18,7 @@ export class CommentComponent implements OnInit {
   editContent = ''
   userId = Number(localStorage.getItem('userId'))
   isAdmin = false;
+  commentEdit = false;
 
   constructor
     (@Inject(MAT_DIALOG_DATA)
@@ -55,6 +56,10 @@ export class CommentComponent implements OnInit {
             console.log(content)
           })
         }
+
+        trigger(){
+          this.commentEdit = true
+        }
       
 
         delete(id) {
@@ -77,6 +82,7 @@ export class CommentComponent implements OnInit {
     console.log(this.userId);
     if (localStorage.getItem('role') === 'admin'){
       this.isAdmin = true;
+      this.commentEdit = true;
     }
   }
 

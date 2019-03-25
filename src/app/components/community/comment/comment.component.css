@@ -1,11 +1,38 @@
+/* #48BEFF
+
+ #48BEFF,#43C59E ,
+ */
+#14453D
+
 .full-width {
-    width: 100%;
+    width: 100vw;
+    padding-top: 2em;
+  
   }
 
+  .mat-dialog-container {
+    padding: 0 !important;
+}
+
   .main-div {
-    margin: 2em 1em 1em 
+    padding: 1em;
+    background-color: #48BEFF;
+    border-radius: .5em;
+  }
+
+  .list {
+    background-color: lightgrey;
+    border-radius: .5em;
   }
 
   .accordion {
-    background-color: aqua
+    background-color: #43c59e;
+    background-image: radial-gradient(#48BEFF, #3DFAFF);
+  }
+
+  .footer {
+    background-color: lightgrey;
+    padding: 2em;
+    border-radius: .5em;
+    margin-top: 1.5em;
   }

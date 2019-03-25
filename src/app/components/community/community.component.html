@@ -1,5 +1,15 @@
 
-<div class="deck" *ngFor="let playlist of _playlists.playlists">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main-div">
+  <div class="deck" *ngFor="let playlist of _playlists.playlists">
   <mat-card class="comm-card" role="region">
     <mat-card-header>
       <mat-card-title> {{ playlist.name }} </mat-card-title>
@@ -10,11 +20,15 @@
   </mat-card-content>
   <!-- <mat-card-content> Songs Info </mat-card-content> -->
     <mat-card-actions>
-      <button (click)="openPlaylist(playlist.id)" mat-button>View Playlist</button>
+      <button class="button" (click)="openPlaylist(playlist.id)" mat-button>View Playlist</button>
       <!-- <button (click)="favPlaylist()" mat-button>
         <mat-icon>star</mat-icon>   
       </button> -->
     </mat-card-actions>
   </mat-card>
+  </div>
 </div>
+</body>
+</html>
+
 
