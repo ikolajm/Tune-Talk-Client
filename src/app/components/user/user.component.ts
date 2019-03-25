@@ -21,22 +21,30 @@ export class UserComponent implements OnInit {
 
   @Input()
 
-  _data={}
+  _data;
   name= ''
   album = ''
   artist = ''
-  thumbnail = ''
-  _playlistData={};
+  thumbnail;
+  _playlistData;;
   baseUrl = 'http://localhost:4200';
   addSong = false
   addPlaylist = false
   editSong = false
   editForm: FormGroup
   classShow = false
-  active = {}
+  active;
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private US: UserService, public dialog: MatDialog, private PLService: PlaylistService, private formBuilder: FormBuilder, private sService: SongService, private router: Router) {
+  constructor(private http: HttpClient, 
+    private route: ActivatedRoute, 
+    private US: UserService, 
+    public dialog: MatDialog, 
+    private PLService: PlaylistService, 
+    private formBuilder: FormBuilder, 
+    private sService: SongService, 
+    private router: Router) 
+    {
     this.createForm()
    }
 

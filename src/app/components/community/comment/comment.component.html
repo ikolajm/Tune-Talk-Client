@@ -1,16 +1,70 @@
-<h1 mat-dialog-title> {{ data.playlist.results.name }} <img mat-card-lg-image align="end" [src]="data.playlist.results.thumbnail"></h1>
+
+<div class="main-div">
+
+  <h1 mat-dialog-title> {{ data.playlist.results.name }} <img mat-card-lg-image align="end" [src]="data.playlist.results.thumbnail"></h1>
     <h2 mat-dialog-subtitle> {{ data.playlist.results.owner }} </h2>
       
   <mat-dialog-content>
-      <!-- song info with divider -->
-<!-- <mat-card-content> Songs Info </mat-card-content> -->
-    
+      <mat-list>                                              
+         <div *ngFor=" let song of data.playlist.results.songs">                                         <!-- Artist-song display -->
+          <mat-list-item> {{ song.name }} - {{ song.artist }} </mat-list-item>     
+          <mat-divider></mat-divider>
+        
+        </div>  
+      </mat-list>
+
+      <mat-accordion class="example-headers-align">
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                View Comments
+              </mat-panel-title>
+              <!-- <mat-panel-description>
+                Type your name and age
+                <mat-icon>account_circle</mat-icon>
+              </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <mat-list>                                              
+                <!-- Comment display -->
+                <div *ngFor="let comment of data.playlist.results.comments">
+                  <mat-divider></mat-divider>
+                  <mat-list-item>{{comment.avatar}} - {{comment.owner}}<br />
+                    <div *ngIf="comment.userId === userId">
+                      <input [(ngModel)]="editContent" type="text" /> 
+                      <mat-icon (click)="edit(comment.id)"matSuffix>edit</mat-icon>
+                      <mat-icon (click)="delete(comment.id)"
+                      matSuffix>delete</mat-icon>
+                    </div>
+
+                    <div *ngIf="isAdmin">
+                      <mat-icon (click)="deleteAdmin(comment.id)"
+                      matSuffix>delete</mat-icon>
+                    </div>
+                  </mat-list-item>
+                  
+                  <mat-list-item>
+                    {{ comment.content }}
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                </div>
+             
+            </mat-list>
+            
+         
+        
+            <form [formGroup]='commentForm'>
+                <mat-form-field appearance="fill" class="full-width">
+                    <textarea formControlName="content" matInput placeholder="Leave a comment..."></textarea>
+                  
+                </mat-form-field>
+            </form>
+        
+            <mat-action-row>
+              <button mat-button color="primary" (click)="onSubmit(data.playlist.results.id)">Submit</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>
   </mat-dialog-content>
   
-  <mat-dialog-actions>
-      <button (click)="favPlaylist()" mat-button>
-          <mat-icon>star</mat-icon>   
-      </button>
-      <button (click)="openComments()" mat-button>Comments...</button>
-     
-  </mat-dialog-actions>
+  </div>
+ 

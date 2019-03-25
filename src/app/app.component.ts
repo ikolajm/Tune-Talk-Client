@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 // import { Router } from '@angular/router';
 import { SignupComponent } from '../app/components/home/auth/signup/signup.component'
 import { Router } from '@angular/router';
@@ -15,17 +15,19 @@ import { User } from './_models/user';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Tune-Talk';
   // bool = false;
-  currentUser: User;
+  userId = '';
+ 
 
   constructor(
     private router: Router,
     private modalService: NgbModal,
     private userService: UserService
   ) {
-    this.userService.currentUser.subscribe(x => this.currentUser = x);
+    // this.userService.currentUser.subscribe(x => this.currentUser = x);
+    
    }
 
   openSignup() {
@@ -43,10 +45,10 @@ export class AppComponent {
         this.router.navigate(['/home']);
     }
     
-      // modalRef.result.then((result) => {
-    //   console.log(result);
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
+
+
+    ngOnInit() {
+      this.userId = localStorage.getItem('userId');
+    }
   
 }
