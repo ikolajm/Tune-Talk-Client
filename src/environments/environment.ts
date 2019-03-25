@@ -3,14 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true
+  production: false
 };
 
 export let APIURL = '';
 
 switch (window.location.hostname) {
   case 'tune-talk-client.herokuapp.com':
-  APIURL = 'https://tune-talk-client.herokuapp.com'
+  APIURL = 'https://tune-talk-server.herokuapp.com'
   break;
 
 default:
