@@ -27,14 +27,13 @@ export class UserComponent implements OnInit {
   artist = ''
   thumbnail = ''
   _playlistData={};
-  baseUrl = 'http://localhost3000';
-  // userId = Number(localStorage.getItem('userId'));
-  addSong = false;
-  addPlaylist = false;
-  editSong = false;
-  editForm: FormGroup;
-  classShow = false;
-  active = {};
+  baseUrl = 'http://localhost:4200';
+  addSong = false
+  addPlaylist = false
+  editSong = false
+  editForm: FormGroup
+  classShow = false
+  active = {}
 
 
   constructor(private http: HttpClient, 
@@ -80,7 +79,8 @@ export class UserComponent implements OnInit {
 
   delete(songId){
     this.sService.deleteSong(songId).subscribe(results =>
-      console.log(results))
+      window.location.href = `${this.baseUrl}/user/${localStorage.userId}`
+    )
   }
 
 

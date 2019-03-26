@@ -32,10 +32,10 @@ export class UserService {
     .pipe(map(user=>{
       if(user && user.sessionToken){
         localStorage.setItem('token', user.sessionToken)
-        this.id=user.user.id;
         this.userId = user.user.id
-        localStorage.setItem('userId', this.userId)
         localStorage.setItem('role', user.user.role)
+        localStorage.setItem('userId', user.user.id)
+        
         this.role=user.user.role;
         console.log(user);
       }
