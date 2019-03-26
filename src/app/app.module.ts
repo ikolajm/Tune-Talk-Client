@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NoopAnimationsModule } from '@angular/platform-browser/animations'; uncomment to disable Material Animations
 import { CustomMaterialModule } from './material.module';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatListModule, MatDividerModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';

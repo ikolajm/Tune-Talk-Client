@@ -63,6 +63,7 @@ export class SignupComponent implements OnInit {
           this.router.navigate([`/user/${this.userService.id}`]);
         },
         error => {
+          console.log(error)
           // this.alertService.error(error);
           this.loading = false;
       });  

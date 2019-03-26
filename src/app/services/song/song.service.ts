@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {APIURL} from '../../../environments/environment.prod';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,18 +23,18 @@ export class SongService {
   
   // Create
   createSong(playlistObj, songObj) {
-    return this.http.post(`${this.base}/${playlistObj.results.id}/song/add`, songObj, httpOptions);
+    return this.http.post(`${APIURL}/playlist/${playlistObj.results.id}/song/add`, songObj, httpOptions);
   }
   // Update
   updateSong(songId, songObj) {
-    return this.http.put(`${this.songURL}/song/edit/${songId}`, songObj, httpOptions);
+    return this.http.put(`${APIURL}/song/edit/${songId}`, songObj, httpOptions);
   }
   // Delete
   deleteSong(id) {
-    return this.http.delete(`${this.songURL}/song/delete/${id}`, httpOptions)
+    return this.http.delete(`${APIURL}/song/delete/${id}`, httpOptions)
   }
   // Delete (admin)
   adminDeleteSong(id) {
-    return this.http.delete(`${this.songURL}/song/delete/${id}/admin`)
+    return this.http.delete(`${APIURL}/song/delete/${id}/admin`)
   }
 }

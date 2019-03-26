@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {APIURL} from '../../../environments/environment.prod';
 
 
 const httpOptions = {
@@ -14,7 +15,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PlaylistService {
-  base = 'http://localhost:3000/playlist';
+  base = `${APIURL}/playlist`;
 
   constructor(private http: HttpClient) { }
 

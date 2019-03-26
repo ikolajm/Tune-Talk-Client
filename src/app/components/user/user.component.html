@@ -14,10 +14,10 @@
 </div> -->
 
 <!--displays user created playlists-->
-<!-- <div class='user'>
-  <h1>Playlists by {{_data.results.username}}</h1>
-  <ul *ngIf='_data.results'>
-    <li *ngFor='let playlist of _data.results.playlists'>
+<!-- <div *ngIf='_data' class='user'>
+  <h1>Playlists by {{_data.results.results.username}}</h1>
+  <ul>
+    <li *ngFor='let playlist of _data.results.results.playlists'>
       <button class='selectPlayButton' mat-raised-button (click)="getPlaylist(playlist.id)">{{ playlist.name }}</button>
     </li>
   </ul>
@@ -27,12 +27,12 @@
   </div>
 </div> -->
 
+<!--Displays Playlists Owned By a User-->
 
-
-<mat-list class="user">
-    <h1>Playlists by {{ _data.results.username }}</h1>
+<mat-list class="user" *ngIf='_data'>
+    <h1>Playlists by {{ _data.results.results.username }}</h1>
   <div *ngIf='_data.results'>
-    <mat-list-item *ngFor='let playlist of _data.results.playlists'>
+    <mat-list-item *ngFor='let playlist of _data.results.results.playlists'>
       <a matLine (click)="getPlaylist(playlist.id)">{{ playlist.name }}</a>
     <mat-divider></mat-divider>
   </mat-list-item>
@@ -56,7 +56,7 @@
       <h2>{{ _playlistData.results.name }}</h2>
       <ul>
         <h3>Songs:</h3>
-        <div *ngIf="_playlistData.results">
+        <div *ngIf="_playlistData">
           <div *ngFor="let song of _playlistData.results.songs"> 
             <h3> {{ song.artist }} - {{ song.name }}</h3>
             <button class='editPlaylistButton' mat-raised-button (click)='editToggle()'>Edit</button>
@@ -83,14 +83,14 @@
     </div>
   </ul>
         <!-- add -->
-        <div *ngIf='_playlistData.results'>
+        <div *ngIf='_playlistData'>
       <button class='addSongButton' mat-raised-button (click)='songToggle()'>Add Song</button>
         <div *ngIf="addSong">
       <app-song-dialog [playlist]="_playlistData"></app-song-dialog>
       </div>
       </div>
       <!-- edit -->
-      <!-- <button class='editPlaylistButton' mat-raised-button (click)='editToggle()'>Edit</button>
+      <button class='editPlaylistButton' mat-raised-button (click)='editToggle()'>Edit</button>
       <div *ngIf="editSong">
           <form [formGroup]='editForm'>
               <label for="name">Name</label>
@@ -104,7 +104,7 @@
             
               <button mat-raised-button (click)='onEdit()'>Done</button>
             </form>
-      </div> -->
+      </div>
 
 </div>
 </div>

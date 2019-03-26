@@ -18,8 +18,8 @@ export class CommunityComponent implements OnInit {
   content: string;
   
 
-  public _playlists = {}
-  active = {}
+  _playlists;
+  active;
 
   constructor(
     // private http: HttpClient,
