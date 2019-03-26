@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.4.
 
 ## Cloning this repo
-To clone this repository, you need to get the url provided by the github dropdown, then in your preferred IDE run the command `git clone https://github.com/ikolajm/Tune-Talk-Client.git`.  At this point you would have successfully cloned the most current version of this project
+To clone this repository, you need to get the url provided by the github dropdown, then in your preferred CLI run the command `git clone https://github.com/ikolajm/Tune-Talk-Client.git`.  At this point you would have successfully cloned the most current version of this project
 
 ## Development client
 
