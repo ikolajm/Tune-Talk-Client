@@ -141,5 +141,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.getUser()
+    // this.editSong = true;
   }
 }

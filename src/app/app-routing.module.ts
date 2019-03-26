@@ -15,8 +15,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard] },
-  { path: 'community', component: CommunityComponent, canActivate: [AuthGuard] },
+  { path: 'user/:id', component: UserComponent },
+  // { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'community', component: CommunityComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 

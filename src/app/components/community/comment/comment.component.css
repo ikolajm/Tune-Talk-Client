@@ -1,7 +1,52 @@
+/* #48BEFF
+
+ #48BEFF,#43C59E ,
+ */
+#14453D
+
 .full-width {
-    width: 100%;
+    width: 100vw;
+    padding-top: 2em;
+  
   }
 
+  .mat-dialog-container {
+    padding: 0 !important;
+    margin: 0!important; 
+}
+
+.mat-expansion-panel-body {
+  padding: 0px !important;
+}
+
   .main-div {
-    margin: 2em 1em 1em 
+    margin: 1.5em .5em;
+    background-color: #48BEFF;
+    padding: 2em;
+    border-radius: .5em;
+  }
+
+  .list {
+    background-color: lightgrey;
+    border-radius: .5em;
+    margin: 0em .5em;
+    padding: 2em;
+  }
+
+  .accordion {
+    background-color: lightgrey;
+    /* background-image: radial-gradient(#48BEFF, #3DFAFF); */
+  }
+
+  .comment-list {
+    background-color: #48BEFF;
+    border-radius: 1em;
+    margin-top: .5em;
+  }
+
+  .footer {
+    background-color: lightgrey;
+    padding: 2em;
+    border-radius: .5em;
+    margin-top: 1.5em;
   }
