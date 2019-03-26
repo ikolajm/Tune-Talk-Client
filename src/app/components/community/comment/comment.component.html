@@ -1,29 +1,20 @@
-<h1 mat-dialog-title> {{ data.playlist.results.name }} <img mat-card-lg-image align="end" [src]="data.playlist.results.thumbnail"></h1>
+
+<div class="main-div">
+
+  <h1 mat-dialog-title> {{ data.playlist.results.name }} <img mat-card-lg-image align="end" [src]="data.playlist.results.thumbnail"></h1>
     <h2 mat-dialog-subtitle> {{ data.playlist.results.owner }} </h2>
       
   <mat-dialog-content>
       <mat-list>                                              
-                                                    <!-- Artist-song display -->
-          <mat-list-item>Item 1</mat-list-item>     
+         <div *ngFor=" let song of data.playlist.results.songs">                                         <!-- Artist-song display -->
+          <mat-list-item> {{ song.name }} - {{ song.artist }} </mat-list-item>     
           <mat-divider></mat-divider>
-          <mat-list-item>Item 2</mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Item 3</mat-list-item>
-          <mat-divider></mat-divider>
+        
+        </div>  
       </mat-list>
 
-                                                      <!-- buttons -->
-    <!-- <mat-dialog-actions>
-        <button (click)="favPlaylist()" mat-button>
-            <mat-icon>star</mat-icon>   
-        </button>
-        <button (click)="onSubmit()" mat-button>Submit</button>
-    </mat-dialog-actions> -->
-
-
-
       <mat-accordion class="example-headers-align">
-          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+          <mat-expansion-panel [expanded]="step === 0"  hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
                 View Comments
@@ -35,32 +26,45 @@
             </mat-expansion-panel-header>
             <mat-list>                                              
                 <!-- Comment display -->
-                <mat-list-item>Item 1</mat-list-item>     
-                <mat-divider></mat-divider>
-                <mat-list-item>Item 2</mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item>Item 3</mat-list-item>
+                <div *ngFor="let comment of data.playlist.results.comments">
+                  <mat-divider></mat-divider>
+                  <mat-list-item>{{comment.avatar}} - {{comment.owner}}<br />
+                    <div *ngIf="comment.userId === userId">
+                      <input [(ngModel)]="editContent" type="text" /> 
+                      <mat-icon (click)="edit(comment.id)"matSuffix>edit</mat-icon>
+                      <mat-icon (click)="delete(comment.id)"
+                      matSuffix>delete</mat-icon>
+                    </div>
+
+                    <div *ngIf="isAdmin">
+                      <mat-icon (click)="deleteAdmin(comment.id)"
+                      matSuffix>delete</mat-icon>
+                    </div>
+                  </mat-list-item>
+                  
+                  <mat-list-item>
+                    {{ comment.content }}
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                </div>
+             
             </mat-list>
             
-            
-            
-            <!-- <mat-form-field>
-              <input matInput placeholder="Enter comment...">
-            </mat-form-field> -->
+         
         
-            <p>
-                <mat-form-field appearance="fill">
-                  <mat-label>Enter comment...</mat-label>
-                  <input matInput placeholder="Placeholder">
+            <form [formGroup]='commentForm'>
+                <mat-form-field appearance="fill" class="full-width">
+                    <textarea formControlName="content" matInput placeholder="Leave a comment..."></textarea>
                   
                 </mat-form-field>
-            </p>
+            </form>
         
             <mat-action-row>
-              <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+              <button mat-button color="primary" (click)="onSubmit(data.playlist.results.id)">Submit</button>
             </mat-action-row>
           </mat-expansion-panel>
         </mat-accordion>
   </mat-dialog-content>
   
+  </div>
  

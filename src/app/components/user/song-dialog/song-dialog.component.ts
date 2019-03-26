@@ -17,7 +17,9 @@ export class SongDialogComponent implements OnInit {
 
 
   
-  constructor(private formBuilder: FormBuilder, private songService: SongService, private playlistService: PlaylistService ) {
+  constructor(private formBuilder: FormBuilder, 
+    private songService: SongService, 
+    private playlistService: PlaylistService ) {
     this.createForm()
   }
 

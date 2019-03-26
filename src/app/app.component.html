@@ -16,7 +16,7 @@
   It is false
 </ng-template> -->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-info navbar fixed-top" *ngIf="!currentUser">
+  <nav class="navbar navbar-expand-lg navbar-light bg-info navbar fixed-top" >
     <h3 class="navbar-brand" class="text-dark" href="/"> <a ><img src="../assets/logo_navbar4.png" routerLink="/home"></a></h3>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +32,13 @@
         </li>
       </ul>
       <ul class="nav navbar-nav ml-auto" >
+       <li class="nav-item">
+          <a routerLink="/user/:id">Create Playlist</a>
+        </li> 
         <li class="nav-item">
           <button (click)="logout()" class="nav-link" class="btn btn-outline-dark" > Logout </button>
         </li>
+        
       </ul>
     </div>
   </nav>

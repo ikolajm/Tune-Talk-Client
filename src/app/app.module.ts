@@ -56,7 +56,7 @@ import { SongDialogComponent } from './components/user/song-dialog/song-dialog.c
   entryComponents: [
      SignupComponent,
     MyDialogComponent,
-    CommentComponent ,
+    CommentComponent,
     SongDialogComponent ]
 })
 export class AppModule { }
