@@ -1,13 +1,17 @@
 {
-  "name": "tune-talk",
+  "name": "tune-talk-client",
   "version": "0.0.0",
+  "engines": {
+    "node": "10.3.0"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod",
+    "start": "serve -s dist/tune-talk-client"
   },
   "private": true,
   "dependencies": {
@@ -30,7 +34,8 @@
     "ngx-parallax": "^4.0.0",
     "parse5": "^5.1.0",
     "rxjs": "~6.3.3",
-    "tslib": "^1.9.3",
+    "serve": "^10.1.2",
+    "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
