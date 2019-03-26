@@ -12,6 +12,7 @@ import { ɵangular_packages_platform_browser_platform_browser_h } from '@angular
 export class HomeComponent implements OnInit {
   content:string;
 
+  title = "Tune Talk"
   
   public _playlists;
 
