@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
+
   get f() { return this.loginForm.controls;  }
  
 
@@ -64,6 +65,7 @@ export class LoginComponent implements OnInit {
         this.loading = false;
     });  
 }
+
 closeModal() {
   this.activeModal.close('Modal Closed');
 }
