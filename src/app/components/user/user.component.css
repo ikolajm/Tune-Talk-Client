@@ -1,6 +1,10 @@
 .created{
     margin-left: 60%;
+    margin-right: 15%;
     margin-top: -380px;
+    background-color: lightgrey;
+    padding: 1em;
+    border-radius: 1em;
 }
 
 .commButton {
@@ -10,6 +14,9 @@
 .user{
     margin-left: 10%;
    margin-right: 65%;
+   background-color: lightgrey;
+   padding: 1em;
+   border-radius: 1em;
 }
 
 .community{
@@ -18,7 +25,7 @@
     margin-top: 60px;
     width: 6em;
     height: 1.5em;
-    background-color: 
+    background-color: lightgrey;
 }
 
 .createPlaylist{
@@ -28,6 +35,11 @@
 }
 
 #body{
-    background-color: #48BEFF;
-    /* padding-bottom: 500px; */
+    width: 100vw;
+    height: 100vw;
+    background-image: url('../../../assets/cassette-cassette-tape-indoors-1219113.jpg');
+    padding-bottom: 500px;
+    background-image: no-repeat;
+    background-size: 100vw;
+    /* color: grey; */
 }

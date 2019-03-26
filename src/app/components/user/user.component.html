@@ -1,7 +1,7 @@
 <!--Navbar-->
 
 
-<!-- <div id='body'> -->
+<div id='body'>
 <!--router link to community page-->
 <div id='commButton'>
   <button (click)="commPageNav()" class='community' mat-raised-button>Community</button>
@@ -37,15 +37,16 @@
     <mat-divider></mat-divider>
   </mat-list-item>
   </div>
-</mat-list>  
+ 
 <br>  
   <div class="createPlaylist">
     <button class="addPlaylistButton" mat-raised-button (click)='playlistToggle()'>Create Playlist</button>
+<br>
     <div *ngIf='addPlaylist'>
       <app-my-dialog></app-my-dialog>
     </div>
   </div>
-
+</mat-list> 
 
 <!--displays selected playlist-->
 <div class='created'>
@@ -106,6 +107,6 @@
       </div> -->
 
 </div>
-<!-- </div> -->
+</div>
 
 
