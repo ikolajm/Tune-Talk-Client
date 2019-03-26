@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
   album = ''
   artist = ''
   thumbnail;
-  _playlistData= new PlaylistData
+  _playlistData: PlaylistData;
   baseUrl = 'http://localhost:4200';
   addSong = false
   addPlaylist = false
@@ -36,6 +36,7 @@ export class UserComponent implements OnInit {
   editForm: FormGroup
   classShow = false
   active;
+  
 
 
   constructor(private http: HttpClient, 
@@ -80,9 +81,9 @@ export class UserComponent implements OnInit {
     this.US.findUser(id).subscribe(user => {
       this._data.results = user;
       // console.log(user)
-      console.log('this._data', this._data)
-      console.log('this._data.results', this._data.results)
-      console.log('this._data.results.results.username', this._data.results.results.username)
+      // console.log('this._data', this._data)
+      // console.log('this._data.results', this._data.results)
+      // console.log('this._data.results.results.username', this._data.results.results.username)
     })
   }
 
@@ -120,9 +121,13 @@ export class UserComponent implements OnInit {
 
   //get single playlist by id
   getPlaylist(id) {
-    this.PLService.getPlaylist(id).subscribe(results => {
-      console.log('playlist data', results)
-      this._playlistData = results
+    this.PLService.getPlaylist(id).subscribe(response => {
+      console.log('playlist data', response)
+      if (response['results']) {
+        let _newPlaylistData = new PlaylistData(response['results'])
+        this._playlistData = _newPlaylistData
+      }
+      // this._playlistData = results
     })
   }
   //conditional for add song to display
