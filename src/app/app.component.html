@@ -25,18 +25,23 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="nav navbar-nav ml-auto">
         <li class="nav-item">
-          <button (click)="openSignup()" class="nav-link" class="btn btn-dark" > Signup </button>
-        </li>
-        <li class="nav-item">
-          <button (click)="openLogin()" class="nav-link" class="btn btn-outline-dark" > Login </button>
-        </li>
+       
       </ul>
       <ul class="nav navbar-nav ml-auto" >
+          <li class="nav-item">
+              <a (click)="openSignup()" class="nav-link"  > Signup </a>
+            </li>
+            
+            <li class="nav-item">
+              <a (click)="openLogin()" class="nav-link"> Login </a>
+            </li>
+            
        <li class="nav-item">
-          <a routerLink="/user/:id">Create Playlist</a>
+          <a (click)="userNav()" class="nav-link"> Create </a>
         </li> 
+        
         <li class="nav-item">
-          <button (click)="logout()" class="nav-link" class="btn btn-outline-dark" > Logout </button>
+          <a (click)="logout()" class="nav-link"> Logout </a>
         </li>
         
       </ul>

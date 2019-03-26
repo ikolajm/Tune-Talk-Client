@@ -45,6 +45,9 @@ export class AppComponent implements OnInit {
         this.router.navigate(['/home']);
     }
     
+    userNav() {
+      this.router.navigate([`/user/${this.userService.id}`])
+    }
 
 
     ngOnInit() {
