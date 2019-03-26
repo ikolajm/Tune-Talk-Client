@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
   album = ''
   artist = ''
   thumbnail;
-  _playlistData: any
+  _playlistData= new PlaylistData
   baseUrl = 'http://localhost:4200';
   addSong = false
   addPlaylist = false
