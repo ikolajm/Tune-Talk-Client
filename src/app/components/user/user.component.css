@@ -1,25 +1,33 @@
 .created{
     margin-left: 60%;
-    margin-top: -170px;
+    margin-top: -380px;
+}
+
+.commButton {
+    padding-bottom: 6em;
 }
 
 .user{
-    margin-left: 20%;
-   
+    margin-left: 10%;
+   margin-right: 65%;
 }
 
 .community{
     margin-left: 40%;
-    font-size: 45px;
-    margin-top: 100px;
+    font-size: 40px;
+    margin-top: 60px;
+    width: 6em;
+    height: 1.5em;
+    background-color: 
 }
 
 .createPlaylist{
-    margin-left: 42%;
-    font-size: 25px;
+    margin-left: 8em;
+    margin-right: 60%;
+    /* font-size: 25px; */
 }
 
 #body{
     background-color: #48BEFF;
-    padding-bottom: 500px;
+    /* padding-bottom: 500px; */
 }

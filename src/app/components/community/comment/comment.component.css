@@ -12,22 +12,36 @@
 
   .mat-dialog-container {
     padding: 0 !important;
+    margin: 0!important; 
+}
+
+.mat-expansion-panel-body {
+  padding: 0px !important;
 }
 
   .main-div {
-    padding: 1em;
+    margin: 1.5em .5em;
     background-color: #48BEFF;
+    padding: 2em;
     border-radius: .5em;
   }
 
   .list {
     background-color: lightgrey;
     border-radius: .5em;
+    margin: 0em .5em;
+    padding: 2em;
   }
 
   .accordion {
-    background-color: #43c59e;
-    background-image: radial-gradient(#48BEFF, #3DFAFF);
+    background-color: lightgrey;
+    /* background-image: radial-gradient(#48BEFF, #3DFAFF); */
+  }
+
+  .comment-list {
+    background-color: #48BEFF;
+    border-radius: 1em;
+    margin-top: .5em;
   }
 
   .footer {

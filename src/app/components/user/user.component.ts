@@ -28,12 +28,13 @@ export class UserComponent implements OnInit {
   thumbnail = ''
   _playlistData={};
   baseUrl = 'http://localhost3000';
-  addSong = false
-  addPlaylist = false
-  editSong = false
-  editForm: FormGroup
-  classShow = false
-  active = {}
+  // userId = Number(localStorage.getItem('userId'));
+  addSong = false;
+  addPlaylist = false;
+  editSong = false;
+  editForm: FormGroup;
+  classShow = false;
+  active = {};
 
 
   constructor(private http: HttpClient, 
@@ -140,5 +141,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.getUser()
+    // this.editSong = true;
   }
 }

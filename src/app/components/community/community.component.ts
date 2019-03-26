@@ -53,6 +53,7 @@ export class CommunityComponent implements OnInit {
       dialogPlaylist.afterClosed().subscribe(result => {
         console.log();
         this.content = result;
+        
       })
     })
   }
