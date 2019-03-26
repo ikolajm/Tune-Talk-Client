@@ -1,6 +1,29 @@
 # TuneTalk
 
+## Collaborators
+Jake Ikola, Matt Hawley, Joe Crouse, Connor Bartlett
+
+## Purpose
+Tune Talk was designed with individual playlist creation in mind.
+
+## Framework
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.4.
+
+## Styling
+HTML5, CSS 3
+
+## Features
+Auth Gaurding, Admin Portal, Local User Token Storage, Full CRUD Application on Two Tables
+
+## Client URL
+tune-talk-client.herokuapp.com
+
+## Server URL
+tune-talk-server.herokuapp.com
+
+## Sample Admin Login Info
+Username: Admin
+Password: Password
 
 ## Cloning this repo
 To clone this repository, you need to get the url provided by the github dropdown, then in your preferred CLI run the command `git clone https://github.com/ikolajm/Tune-Talk-Client.git`.  At this point you would have successfully cloned the most current version of this project

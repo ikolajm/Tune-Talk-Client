@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PlaylistService } from '../../services/playlist/playlist.service';
-import { ɵangular_packages_platform_browser_platform_browser_h } from '@angular/platform-browser';
 
 
 @Component({
@@ -12,6 +11,7 @@ import { ɵangular_packages_platform_browser_platform_browser_h } from '@angular
 export class HomeComponent implements OnInit {
   content:string;
 
+  title = "Tune Talk"
   
   public _playlists;
 
