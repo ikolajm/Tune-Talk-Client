@@ -28,9 +28,8 @@
         <!--Grid column-->
         <div class="col-md-12 text-center mb-5;">
             <h2 class="h1 font-bold light-blue-text my-5">A playlist is simply a collection of songs. You can make your own, share them, and enjoy the millions of other playlists created by Tune Talk fans worldwide.</h2>
-            
             <p align="justify"></p>
-                    </div>
+        </div>
         <!--Grid column-->
     </div>
     <!--Grid row-->
@@ -78,7 +77,7 @@
                 <div class="row mt-5">
                     <div class="col-md-12 wow fadeIn mb-3">
                         <div class="intro-info-content text-center">
-                            <h2 class="h1 display-1 white-text mb-2 wow fadeInDown" data-wow-delay="0.3s">sign up to see more playlist</h2>
+                            <h2 class="h1 display-1 white-text mb-2 wow fadeInDown" data-wow-delay="0.3s">sign up to see more playlists</h2>
                             <h4 class="mb-3 mt-1 white-text font-bold wow fadeIn" data-wow-delay="0.4s"></h4>
                             <a mdbBtn color="" class="wow fadeIn waves-light" mdbWavesEffect data-wow-delay="0.4s"></a>
                         </div>
@@ -94,7 +93,7 @@
     <div class="row">
         <!--Grid column-->
         <div class="col-md-12 text-center my-5">
-                <div class="deck" *ngFor="let playlist of _playlists.playlists | slice:4:0">
+                <div class="deck" *ngFor="let playlist of _playlists.playlists | slice:-4 ">
                         <mat-card class="comm-card" role="region">
                           <mat-card-header>
                             <mat-card-title> {{ playlist.name }} </mat-card-title>
@@ -104,7 +103,7 @@
                           <img mat-card-lg-image  [src]="playlist.thumbnail"> 
                         </mat-card-content>
                           <mat-card-actions>
-                            <button (click)="openPlaylist(playlist.id)" mat-button>View Playlist</button>
+                            <button (click)="openPlaylist(playlist.id)" mat-button>View Playlists</button>
                           </mat-card-actions>
                         </mat-card>
                         </div>
