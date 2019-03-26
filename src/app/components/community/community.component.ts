@@ -46,12 +46,14 @@ export class CommunityComponent implements OnInit {
       this.active = data
       const dialogPlaylist = this.dialog.open(CommentComponent, {
         width: '600px', height: '800px',
-        data: {playlist: this.active}
+        data: {playlist: this.active},
+        panelClass: 'app-full-bleed-dialog'
       })
   
       dialogPlaylist.afterClosed().subscribe(result => {
         console.log();
         this.content = result;
+        
       })
     })
   }

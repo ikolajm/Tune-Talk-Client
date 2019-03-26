@@ -2,6 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { CommentService } from 'src/app/services/comment/comment.service';
 import { FormGroup, FormBuilder, Form} from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 
 @Component({
@@ -18,6 +20,9 @@ export class CommentComponent implements OnInit {
   editContent = ''
   userId = Number(localStorage.getItem('userId'))
   isAdmin = false;
+  commentEdit = false;
+
+  
 
   constructor
     (@Inject(MAT_DIALOG_DATA)
@@ -42,7 +47,8 @@ export class CommentComponent implements OnInit {
           console.log(this.commentForm.value)
           this.commentService.createComment(playlistId, this.commentForm.value).subscribe(data => {
             console.log('I worked!')
-          })
+            
+          });window.location.href
         }
         
         
@@ -54,6 +60,10 @@ export class CommentComponent implements OnInit {
           this.commentService.editComment(id, content).subscribe(data => {
             console.log(content)
           })
+        }
+
+        trigger(){
+          this.commentEdit = true
         }
       
 
@@ -77,6 +87,7 @@ export class CommentComponent implements OnInit {
     console.log(this.userId);
     if (localStorage.getItem('role') === 'admin'){
       this.isAdmin = true;
+      this.commentEdit = true;
     }
   }
 

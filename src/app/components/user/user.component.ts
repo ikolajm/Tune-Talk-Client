@@ -8,6 +8,8 @@ import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 import { SongDialogComponent } from './song-dialog/song-dialog.component';
 import { NgModel, FormGroup, FormBuilder } from '@angular/forms';
 import { SongService } from '../../services/song/song.service'
+import { Data } from '../../_models/data'
+import { PlaylistData } from '../../_models/playlistData'
 
 
 
@@ -21,12 +23,12 @@ export class UserComponent implements OnInit {
 
   @Input()
 
-  _data;
+  _data = new Data
   name= ''
   album = ''
   artist = ''
   thumbnail;
-  _playlistData;;
+  _playlistData = new PlaylistData
   baseUrl = 'http://localhost:4200';
   addSong = false
   addPlaylist = false
@@ -57,7 +59,10 @@ export class UserComponent implements OnInit {
       thumbnail:''
      })
    }
-
+   
+   ngOnInit() {
+     this.getUser()
+   }
 
 
    //edit song in playlist
@@ -73,7 +78,11 @@ export class UserComponent implements OnInit {
   getUser() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.US.findUser(id).subscribe(user => {
-      this._data = user;
+      this._data.results = user;
+      // console.log(user)
+      console.log('this._data', this._data)
+      console.log('this._data.results', this._data.results)
+      console.log('this._data.results.results.username', this._data.results.results.username)
     })
   }
 
@@ -112,7 +121,7 @@ export class UserComponent implements OnInit {
   //get single playlist by id
   getPlaylist(id) {
     this.PLService.getPlaylist(id).subscribe(results => {
-      console.log(results)
+      console.log('playlist data', results)
       this._playlistData = results
     })
   }
@@ -139,7 +148,4 @@ export class UserComponent implements OnInit {
 
 
 
-  ngOnInit() {
-    this.getUser()
-  }
 }
