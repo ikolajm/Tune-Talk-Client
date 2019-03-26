@@ -1,8 +1,15 @@
+.main-div {
+    /* background-image: url('../../../assets/black-and-white-close-up-instrument-1153896.jpg'); */
+    height: 100vw;
+    width: 100vw;
+    background-color: #43c59e;
+    background-image: radial-gradient( #48BEFF, #3DFAFF);
+}
 .comm-card {
     width: 22vw;
     height: 20vw;
-    text-align: center;
-    
+    text-align: center; 
+    background-color: lightgray;  
     /* background-image: url('../../../assets/21450369.png') */
 }
 
@@ -12,5 +19,15 @@
 }
 
 .playlist-art {
-    background-size: cover;  
+    background-size: cover;
+}
+
+.button {
+    z-index: 4;
+}
+
+.custom-modalbox {
+    
+        padding: 0;
+   
 }
