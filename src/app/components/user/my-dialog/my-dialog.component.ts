@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgModel, FormGroup, FormBuilder } from '@angular/forms';
-import { PlaylistService } from '../../../services/playlist/playlist.service'
+import { PlaylistService } from '../../../services/playlist/playlist.service';
+import { UserService } from '../../../services/user/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +15,10 @@ export class MyDialogComponent implements OnInit {
 
   playlistForm: FormGroup
 
-  constructor(private formBuilder: FormBuilder, private playlistService: PlaylistService) {
+  constructor(private formBuilder: FormBuilder, 
+    private playlistService: PlaylistService,
+    private router: Router,
+    private userService: UserService) {
     this.createForm()
    }
 
@@ -29,7 +34,9 @@ export class MyDialogComponent implements OnInit {
      console.log(this.playlistForm.value)
      this.playlistService.createPlaylist(this.playlistForm.value)
      .subscribe(data => {
-       console.log(data)
+       window.location.reload()
+      //  console.log(data)
+      // this.router.navigate([`/user/${this.userService.id}`])
      })
    }
 

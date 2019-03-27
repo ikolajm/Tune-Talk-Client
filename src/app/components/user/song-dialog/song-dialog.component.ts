@@ -48,7 +48,11 @@ export class SongDialogComponent implements OnInit {
     console.log(this.songForm.value)
     console.log('playlist data',this.playlistData)
     this.songService.createSong(this.playlistData, this.songForm.value).subscribe()
-   
+    window.location.reload()
+    // this.playlistService.playlistRefresh(this.playlistData).subscribe(data => {
+    //   this.playlistData = data
+    // })
+    // console.log(this.playlistData);
    }
 
   ngOnInit() {
