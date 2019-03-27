@@ -30,7 +30,7 @@
 <!--Displays Playlists Owned By a User-->
 
 <mat-list class="user" *ngIf='_data'>
-    <h1 *ngIf='_data.results'>Playlists by {{ _data.results.results.username }}</h1>
+    <h1 *ngIf='_data.results'>Playlists by {{ _data.results.user.username }}</h1>
   <div *ngIf='_data.results'>
     <mat-list-item *ngFor='let playlist of _data.results.results.playlists'>
       <a matLine (click)="getPlaylist(playlist.id)">{{ playlist.name }}</a>
