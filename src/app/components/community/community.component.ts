@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PlaylistService } from '../../services/playlist/playlist.service'
 import { CommentService } from 'src/app/services/comment/comment.service';
 import { CommentComponent } from './comment/comment.component';
-
+import { UserService } from '../../services/user/user.service';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class CommunityComponent implements OnInit {
   constructor(
     // private http: HttpClient,
     // private route: ActivatedRoute,
-    // private router: Router,
+    private userService: UserService,
     public dialog: MatDialog,
     private playlistService: PlaylistService,
     private commentService: CommentService,
@@ -64,7 +64,8 @@ export class CommunityComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getPlaylists()  
+    this.getPlaylists();
+     
   }
 
 }

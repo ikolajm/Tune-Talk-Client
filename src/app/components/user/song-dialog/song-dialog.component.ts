@@ -4,6 +4,7 @@ import { NgModel, FormGroup, FormBuilder } from '@angular/forms';
 import { UserComponent } from '../user.component';
 import { SongService } from 'src/app/services/song/song.service';
 import { PlaylistService } from 'src/app/services/playlist/playlist.service'
+import { PlaylistData } from '../../../_models/playlistData'
 
 @Component({
   selector: 'app-song-dialog',
@@ -12,8 +13,8 @@ import { PlaylistService } from 'src/app/services/playlist/playlist.service'
 })
 export class SongDialogComponent implements OnInit {
   
-  songForm: FormGroup
-  playlistData = {}
+  songForm: FormGroup;
+  playlistData: PlaylistData
 
 
   
@@ -41,10 +42,13 @@ export class SongDialogComponent implements OnInit {
     })
    }
 
+
    onClick(){ 
+    //  let playlistData = new PlaylistData(response['response'])
     console.log(this.songForm.value)
-    console.log(this.playlistData)
+    console.log('playlist data',this.playlistData)
     this.songService.createSong(this.playlistData, this.songForm.value).subscribe()
+    window.location.reload()
     // this.playlistService.playlistRefresh(this.playlistData).subscribe(data => {
     //   this.playlistData = data
     // })

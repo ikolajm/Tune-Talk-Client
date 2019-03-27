@@ -63,6 +63,7 @@ export class UserComponent implements OnInit {
    
    ngOnInit() {
      this.getUser()
+     console.log(this.US.userId)
    }
 
 
@@ -71,7 +72,8 @@ export class UserComponent implements OnInit {
      console.log(this.editForm.value)
      console.log(songId)
     this.sService.updateSong(songId, this.editForm.value).subscribe(results =>
-      console.log(results)
+      // console.log(results)
+      window.location.reload()
     )
    }
 
