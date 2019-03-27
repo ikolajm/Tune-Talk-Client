@@ -46,9 +46,9 @@ export class CommentComponent implements OnInit {
           console.log(playlistId)
           console.log(this.commentForm.value)
           this.commentService.createComment(playlistId, this.commentForm.value).subscribe(data => {
-            console.log('I worked!')
-            
-          });window.location.href
+            // console.log('I worked!')
+            window.location.reload()
+          });
         }
         
         
@@ -58,7 +58,8 @@ export class CommentComponent implements OnInit {
             content: this.editContent
           }
           this.commentService.editComment(id, content).subscribe(data => {
-            console.log(content)
+            // console.log(content)
+            window.location.reload()
           })
         }
 
@@ -70,13 +71,15 @@ export class CommentComponent implements OnInit {
         delete(id) {
           this.commentService.deleteComment(id)
           .subscribe(data => {
-            console.log('comment deleted')
+            // console.log('comment deleted')
+            window.location.reload()
           })
         }
 
         deleteAdmin(id) {
           this.commentService.adminDeleteComment(id).subscribe(data => {
-            console.log('Comment deleted')
+            // console.log('Comment deleted')
+            window.location.reload()
           })
         }
 

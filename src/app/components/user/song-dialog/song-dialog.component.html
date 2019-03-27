@@ -1,13 +1,17 @@
-
-<form [formGroup]='songForm'>
-  <label for="name">Name</label>
-    <input formControlName="name">
-  <label for='album'>Album</label>
-    <input formControlName='album'>
-  <label for='artist'>Artist</label>
-    <input formControlName="artist">
-  <label for='thumbnail'>Thumbnail</label>
-    <input formControlName="thumbnail">
-
-  <button mat-raised-button (click)='onClick()'>Done</button>
-</form>
+<mat-list>
+    <form [formGroup]='songForm'>
+    <mat-list-item>
+      <label for="name">Name</label>
+        <input formControlName="name">
+    </mat-list-item>
+      <label for='album'>Album</label>
+        <input formControlName='album'>
+    <mat-list-item>
+      <label for='artist'>Artist</label>
+        <input formControlName="artist">
+     </mat-list-item>   
+      <label for='thumbnail'>Thumbnail</label>
+        <input formControlName="thumbnail">
+      <button mat-raised-button (click)='onClick()'>Done</button>
+    </form>
+</mat-list>

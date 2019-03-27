@@ -1,9 +1,15 @@
 
 <br>
+<mat-list class="create-playlist">
 <form [formGroup]='playlistForm'>
-    <label for="name">Name</label>
+    <mat-list-item>
+      <label for="name">Name</label>
       <input formControlName="name">
+    </mat-list-item>
+    <mat-list-item>
     <label for='thumbnail'>Thumbnail</label>
       <input formControlName="thumbnail">
+    </mat-list-item>
     <button mat-raised-button (click)='onSubmit()'>Done</button>
   </form>
+</mat-list>

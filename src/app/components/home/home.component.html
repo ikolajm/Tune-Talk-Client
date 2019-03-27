@@ -31,7 +31,7 @@
     <!--Grid row-->
 </div>
 
-<div class="view intro" style="background-image: none; z-index: 0; min-height: 700px;">
+<div class="view intro" style="background-image: none; z-index: 0; min-height: 800px;">
     <div class="full-bg-img mask rgba-white-light">
         <div class="container flex-center">
             <div class="row mt-5 py-5">
@@ -73,7 +73,7 @@
                 <div class="row mt-5">
                     <div class="col-md-12 wow fadeIn mb-3">
                         <div class="intro-info-content text-center">
-                            <h2 class="h1 display-1 white-text mb-2 wow fadeInDown" data-wow-delay="0.3s">Sign Up To See Playlists</h2>
+                            <h2 class="h1 display-1 white-text mb-2 wow fadeInDown" data-wow-delay="0.3s">Sign Up Now To Join the Tune Talk Community and Create Your Own Playlists</h2>
                             <h4 class="mb-3 mt-1 white-text font-bold wow fadeIn" data-wow-delay="0.4s"></h4>
                             <a mdbBtn color="" class="wow fadeIn waves-light" mdbWavesEffect data-wow-delay="0.4s"></a>
                         </div>
@@ -91,9 +91,9 @@
         <div *ngIf="_playlists" class="col-md-12 text-center my-5">
                 <div class="deck" *ngFor="let playlist of _playlists.playlists | slice:-4 ">
                         <mat-card class="comm-card" role="region">
-                          <mat-card-header>
-                            <mat-card-title class="playlist-name"> {{ playlist.name }} </mat-card-title>
-                              <mat-card-subtitle class="playlist-owner"> {{ playlist.owner }} </mat-card-subtitle>
+                          <mat-card-header  style= "justify-content: center">
+                            <mat-card-title class="playlist-name"> {{ playlist.name }}   by   {{ playlist.owner }} </mat-card-title>
+                              
                           </mat-card-header>
                         <mat-card-content class="playlist-art">
                           <img mat-card-lg-image  [src]="playlist.thumbnail"> 
