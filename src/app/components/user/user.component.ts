@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
   album = ''
   artist = ''
   thumbnail;
-  _playlistData: PlaylistData;
+  _playlistData: any
   baseUrl = 'http://localhost:4200';
   addSong = false
   addPlaylist = false
@@ -70,7 +70,7 @@ export class UserComponent implements OnInit {
    onEdit(songId){
      console.log(this.editForm.value)
      console.log(songId)
-    this.sService.updateSong(songId, this.editForm.value).subscribe(results =>
+      this.sService.updateSong(songId, this.editForm.value).subscribe(results =>
       console.log(results)
     )
    }
@@ -80,17 +80,18 @@ export class UserComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.US.findUser(id).subscribe(user => {
       this._data.results = user;
-      // console.log(user)
+      console.log(this._data.results)
       // console.log('this._data', this._data)
       // console.log('this._data.results', this._data.results)
       // console.log('this._data.results.results.username', this._data.results.results.username)
     })
   }
-
+//deletes single song
   delete(songId){
-    this.sService.deleteSong(songId).subscribe(results =>
-      window.location.href = `${this.baseUrl}/user/${localStorage.userId}`
-    )
+    console.log(songId)
+    this.sService.deleteSong(songId).subscribe(() => {
+      console.log('Did it')
+    })
   }
 
 
@@ -122,11 +123,8 @@ export class UserComponent implements OnInit {
   //get single playlist by id
   getPlaylist(id) {
     this.PLService.getPlaylist(id).subscribe(response => {
-      console.log('playlist data', response)
-      if (response['results']) {
-        let _newPlaylistData = new PlaylistData(response['results'])
-        this._playlistData = _newPlaylistData
-      }
+      console.log('here',response)
+        this._playlistData = response
       // this._playlistData = results
     })
   }

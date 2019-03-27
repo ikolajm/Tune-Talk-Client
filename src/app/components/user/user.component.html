@@ -30,7 +30,10 @@
 <!--Displays Playlists Owned By a User-->
 
 <mat-list class="user" *ngIf='_data'>
-    <h1 *ngIf='_data.results'>Playlists by {{ _data.results.results.username }}</h1>
+  <div *ngIf="_data.results">
+    <h1 *ngIf='_data.results.results'>Playlists by {{ _data.results.results.username }}</h1>
+  </div>
+
   <div *ngIf='_data.results'>
     <mat-list-item *ngFor='let playlist of _data.results.results.playlists'>
       <a matLine (click)="getPlaylist(playlist.id)">{{ playlist.name }}</a>
@@ -51,13 +54,16 @@
 <!--displays selected playlist-->
 <div class='created'>
   <h1>Your Playlists</h1>
+  <mat-divider></mat-divider>
   <ul>
     <div *ngIf="_playlistData">
+      <div class='playlistName'>
       <h2>{{ _playlistData.name }}</h2>
+      </div>
       <ul>
         <h3>Songs:</h3>
         <div>
-          <div *ngFor="let song of _playlistData.songs"> 
+          <div *ngFor="let song of _playlistData.results.songs"> 
             <h3> {{ song.artist }} - {{ song.name }}</h3>
             <button class='editPlaylistButton' mat-raised-button (click)='editToggle()'>Edit</button>
             <button class='deleteSongButton' mat-raised-button (click)='delete(song.id)'>Delete</button>

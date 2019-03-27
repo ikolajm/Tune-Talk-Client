@@ -8,6 +8,7 @@
   <title>Document</title>
 </head>
 <body>
+  <div *ngIf='_playlists'>
   <div class="main-div">
   <div class="deck" *ngFor="let playlist of _playlists.playlists">
   <mat-card class="comm-card" role="region">
@@ -27,6 +28,7 @@
     </mat-card-actions>
   </mat-card>
   </div>
+</div>
 </div>
 </body>
 </html>

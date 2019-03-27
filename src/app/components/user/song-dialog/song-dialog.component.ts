@@ -47,7 +47,8 @@ export class SongDialogComponent implements OnInit {
     //  let playlistData = new PlaylistData(response['response'])
     console.log(this.songForm.value)
     console.log('playlist data',this.playlistData)
-    this.songService.createSong(this.playlistData, this.songForm.value).subscribe()
+    this.songService.createSong(this.playlistData, this.songForm.value).subscribe(results =>
+      console.log(results))
    
    }
 

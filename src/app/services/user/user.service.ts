@@ -71,7 +71,7 @@ export class UserService {
     localStorage.clear()
     this.id = undefined;
     this.role = undefined;
-    this.userId = undefined
+    this.userId = undefined;
     this.currentUserSubject.next(null);
   }
   

@@ -7,7 +7,8 @@ export class PlaylistData {
     name: string;
     updatedAt: string;
     userId: number;
-    songs: any[]
+    songs: any[];
+    results: object;
     constructor(options: any){
         this.id = options['id']
         this.owner = options['owner']
