@@ -38,10 +38,12 @@
             
             <mat-list class="comment-list">                                              
                 
-                <div *ngFor="let comment of data.playlist.results.comments">
+                <div *ngFor="let comment of data.playlist.results.comments" class="comment">
+                  
                   <mat-divider></mat-divider>
+                  <br>
                   <mat-list-item style="display: inline-block">
-                    <h5 matLine align="left"> {{comment.avatar}} - {{comment.owner}} </h5>
+                    <h5 matLine align="left">{{comment.owner}} </h5>
                     <a *ngIf="comment.userId === userId" 
                     matLine align="right" (click)=trigger()> Edit Comment</a>
                   </mat-list-item>
@@ -56,7 +58,6 @@
                         matSuffix>delete</mat-icon>
                       </div>
                   </mat-list-item>
-                  
                   <mat-list-item >
                     {{ comment.content }}
                   </mat-list-item>
@@ -66,8 +67,8 @@
                         matLine matSuffix align="right">delete 
                       </mat-icon></a>
                   </mat-list-item>
-                 
-                </div>
+            </div>
+            <br>
             </mat-list>   
         <br>
         <hr>     

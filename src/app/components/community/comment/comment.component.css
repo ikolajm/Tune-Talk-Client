@@ -44,6 +44,13 @@
     margin-top: .5em;
   }
 
+  .comment {
+    background-color: white;
+    margin:1.5em;
+    border-radius:1em
+    b
+  }
+
   .footer {
     background-color: lightgrey;
     padding: 2em;

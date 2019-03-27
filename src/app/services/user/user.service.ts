@@ -22,7 +22,7 @@ export class UserService {
   public role: string;
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  userId = ''
+  userId = null;
 
   constructor(private http: HttpClient) { 
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user.token')));
@@ -50,6 +50,8 @@ export class UserService {
     }))
   }
 
+
+
   // Singup
   signup(user) {
     return this.http.post<any>(`${APIURL}/user/signup`, user, httpOptions)
@@ -72,7 +74,6 @@ export class UserService {
     this.id = undefined;
     this.role = undefined;
     this.userId = undefined;
-    this.currentUserSubject.next(null);
   }
   
   // View single page
