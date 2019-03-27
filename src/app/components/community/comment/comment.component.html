@@ -43,7 +43,7 @@
                   <mat-divider></mat-divider>
                   <br>
                   <mat-list-item style="display: inline-block">
-                    <h5 matLine align="left"> {{comment.avatar}} - {{comment.owner}} </h5>
+                    <h5 matLine align="left">{{comment.owner}} </h5>
                     <a *ngIf="comment.userId === userId" 
                     matLine align="right" (click)=trigger()> Edit Comment</a>
                   </mat-list-item>
