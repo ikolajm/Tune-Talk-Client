@@ -63,7 +63,7 @@ export class UserComponent implements OnInit {
    
    ngOnInit() {
      this.getUser()
-     console.log(this.US.userId)
+    //  console.log(this.US.userId)
    }
 
 
