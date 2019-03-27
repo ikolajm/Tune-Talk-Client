@@ -82,7 +82,7 @@ export class UserComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.US.findUser(id).subscribe(user => {
       this._data.results = user;
-      // console.log(user)
+      console.log(user)
       // console.log('this._data', this._data)
       // console.log('this._data.results', this._data.results)
       // console.log('this._data.results.results.username', this._data.results.results.username)
