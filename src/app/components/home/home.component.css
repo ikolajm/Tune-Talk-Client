@@ -1,11 +1,18 @@
 .comm-card {
-    width: 60vw;
-    height: 20vw;
+    width: 40vw;
+    height: 16vw;
     text-align: center; 
-    background-color: lightgray; 
+    background-color:lightgrey;
+    margin-bottom: 1em;
+    padding: -16px;
+    text-align: center;
 }
 
-.playlist-art {
+.deck {
     
-    
+    padding-left:14em;
 }
+
+/* .container {
+    background-color: lightgrey
+} */
