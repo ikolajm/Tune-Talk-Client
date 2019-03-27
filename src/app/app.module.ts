@@ -31,7 +31,6 @@ import { SongDialogComponent } from './components/user/song-dialog/song-dialog.c
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    // AlertComponent,
     CommunityComponent,
     MyDialogComponent,
     CommentComponent,
