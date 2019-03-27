@@ -1,8 +1,4 @@
-<div class="" style="text-align:center">
-    <h1>
-        {{ title }}
-      </h1>
-    </div>
+
 
 <div class="view intro" style="background-image: url('./assets/logo_main.png'); background-attachment: fixed; height: 600px; background-repeat: no-repeat; background-size: inherit; background-position: center; background-color: #3DFAFF ">
     <div class="rgba-white-light">
@@ -77,7 +73,7 @@
                 <div class="row mt-5">
                     <div class="col-md-12 wow fadeIn mb-3">
                         <div class="intro-info-content text-center">
-                            <h2 class="h1 display-1 white-text mb-2 wow fadeInDown" data-wow-delay="0.3s">sign up to see more playlists</h2>
+                            <h2 class="h1 display-1 white-text mb-2 wow fadeInDown" data-wow-delay="0.3s">Sign Up To See Playlists</h2>
                             <h4 class="mb-3 mt-1 white-text font-bold wow fadeIn" data-wow-delay="0.4s"></h4>
                             <a mdbBtn color="" class="wow fadeIn waves-light" mdbWavesEffect data-wow-delay="0.4s"></a>
                         </div>
@@ -96,15 +92,13 @@
                 <div class="deck" *ngFor="let playlist of _playlists.playlists | slice:-4 ">
                         <mat-card class="comm-card" role="region">
                           <mat-card-header>
-                            <mat-card-title> {{ playlist.name }} </mat-card-title>
-                              <mat-card-subtitle> {{ playlist.owner }} </mat-card-subtitle>
+                            <mat-card-title class="playlist-name"> {{ playlist.name }} </mat-card-title>
+                              <mat-card-subtitle class="playlist-owner"> {{ playlist.owner }} </mat-card-subtitle>
                           </mat-card-header>
                         <mat-card-content class="playlist-art">
                           <img mat-card-lg-image  [src]="playlist.thumbnail"> 
                         </mat-card-content>
-                          <mat-card-actions>
-                            <button (click)="openPlaylist(playlist.id)" mat-button>View Playlists</button>
-                          </mat-card-actions>
+                         
                         </mat-card>
                         </div>
             <h2 class="h1 font-bold pink-text mb-5"></h2>

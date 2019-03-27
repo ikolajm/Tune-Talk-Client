@@ -45,6 +45,7 @@ export class SongDialogComponent implements OnInit {
     console.log(this.songForm.value)
     console.log(this.playlistData)
     this.songService.createSong(this.playlistData, this.songForm.value).subscribe()
+    window.location.reload()
     // this.playlistService.playlistRefresh(this.playlistData).subscribe(data => {
     //   this.playlistData = data
     // })

@@ -45,13 +45,17 @@ export class AppComponent implements OnInit {
         this.router.navigate(['/home']);
     }
     
-    userNav() {
-      this.router.navigate([`/user/${this.userService.id}`])
-    }
+    userNav() { 
+      
+        this.router.navigate([`/user/${this.userService.id}`])
+      }
+      
 
 
     ngOnInit() {
       this.userId = localStorage.getItem('userId');
+      
+      
     }
   
 }
