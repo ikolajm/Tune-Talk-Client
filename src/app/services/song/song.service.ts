@@ -23,7 +23,7 @@ export class SongService {
   
   // Create
   createSong(playlistObj, songObj) {
-    return this.http.post(`${APIURL}/playlist/${playlistObj.id}/song/add`, songObj, httpOptions);
+    return this.http.post(`${APIURL}/playlist/${playlistObj.results.id}/song/add`, songObj, httpOptions);
   }
   // Update
   updateSong(songId, songObj) {
